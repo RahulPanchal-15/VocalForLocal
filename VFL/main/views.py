@@ -8,13 +8,17 @@ from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+#Create your views here.
 from .models import *
 from .forms import CreateUserForm
 
 
 def home(request):
-    return render(request,'main/home.html',context={})
+	return render(request,'main/home.html',context={})
+
+# def home(request):
+# 	l = [{"name":"Rahul","rno":"1911097"},{"name":"Aditya","rno":"1911090"}]
+# 	return render(request,'main/home.html',context={"data":l})
 
 def profile(request):
     return render(request,'main/profile.html',context={})
