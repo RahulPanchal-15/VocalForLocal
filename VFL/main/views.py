@@ -18,10 +18,6 @@ from .forms import CreatePost,ProfileForm
 def home(request):
 	return render(request,'main/home.html',context={})
 
-# def home(request):
-# 	l = [{"name":"Rahul","rno":"1911097"},{"name":"Aditya","rno":"1911090"}]
-# 	return render(request,'main/home.html',context={"data":l})
-
 def profile(request):
 	print("IN")
 	if request.method == "POST":
@@ -64,10 +60,8 @@ def registerPage(request):
 				form.save()
 				user = form.cleaned_data.get('username')
 				messages.success(request, 'Account was created for ' + user)
-
 				return redirect('login')
-			
-
+		
 		context = {'form':form}
 		return render(request, 'main/register.html', context)
 
@@ -86,7 +80,6 @@ def loginPage(request):
 				return redirect('home')
 			else:
 				messages.info(request, 'Username OR password is incorrect')
-
 		context = {}
 		return render(request, 'main/login.html', context)
 

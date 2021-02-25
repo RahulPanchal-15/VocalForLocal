@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Login</title>
   </head>
-  <body>
-    {% block content %}
+
+  <body id="bg" style="background-image: url('/static/images/Untitled design (1).png')";>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -25,8 +26,14 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        background: #fff !important;
       }
+
+      #bg {
+      background-size: 100%;
+      background-position: center center;
+      background-repeat: no-repeat; 
+      }
+
       .user_card {
         width: 500px;
         height: 500px;
@@ -63,19 +70,23 @@
         background: linear-gradient(159deg, #33ccff, #b38ed1);
         color: white !important;
       }
+
       .login_btn:focus {
         box-shadow: none !important;
         outline: 0px !important;
       }
+
       .login_container {
         padding: 0 2rem;
       }
+
       .input-group-text {
         background: #f7ba5b !important;
         color: white !important;
         border: 0 !important;
         border-radius: 0.25rem 0 0 0.25rem !important;
       }
+
       .input_user,
       .input_pass:focus {
         box-shadow: none !important;
@@ -83,23 +94,23 @@
       }
 
       #messages {
-        background-color: grey;
+        background: #ffc871;
         color: #fff;
         padding: 10px;
         margin-top: 10px;
+        justify-content: center;
       }
 
       .topnav {
-        background: linear-gradient(79deg, #f4f493, #ffc871);
+        background:  #ffc871;
         overflow: hidden;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		position: fixed; 
-  		top: 0;
-  		width: 100%;
+		    position: fixed; 
+  	  	top: 0;
+  	  	width: 100%;
       }
 
-      /* Style the links inside the navigation bar */
       .topnav a {
         float: left;
         color: #f2f2f2;
@@ -109,20 +120,28 @@
         font-size: 17px;
       }
 
-      /* Change the color of links on hover */
       .topnav a:hover {
-        background-color: #ddd;
-        color: black;
+        background-color: #f4f493;
       }
 
-      /* Add a color to the active/current link */
       .topnav a.active {
         color: rgb(255, 102, 0);
         text-shadow: 2px 2px 7px #ebab4a;
       }
+
+      #logo-image{
+      width: 300px;
+      height: 100%;
+      overflow: hidden;
+      margin-top: -6px;
+      }
+      
     </style>
+
     <div class="topnav">
-      <a class="active" href="home.html"><h5>VocalForLocal</h5></a>
+      <a class="active" href="home.html">
+        <img id='logo-image' src ="{% static 'images/logo1.png' %}" alt="VocalForLocal"/>
+      </a>
     </div>
     <div class="container h-100">
       <div class="d-flex justify-content-center h-100">
@@ -135,9 +154,9 @@
               {% csrf_token %}
               <div class="input-group mb-3">
                 <div class="input-group-append">
-                  <span class="input-group-text"
-                    ><i class="fas fa-user"></i
-                  ></span>
+                  <span class="input-group-text">
+                    <i class="fas fa-user"></i>
+                  </span>
                 </div>
 
                 <input
@@ -169,21 +188,18 @@
               </div>
             </form>
           </div>
-
-          {% for message in messages %}
-          <p id="messages">{{message}}</p>
-          {% endfor %}
-
           <div class="mt-4">
             <div class="d-flex justify-content-center links">
               Don't have an account?
               <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
             </div>
+            <br>
+            {% for message in messages %}
+            <p id="messages">{{message}}</p>
+            {% endfor %}
           </div>
         </div>
       </div>
     </div>
-
-    {% endblock %}
   </body>
 </html>

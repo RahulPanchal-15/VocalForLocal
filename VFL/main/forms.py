@@ -19,4 +19,3 @@ class ProfileForm(forms.Form):
 	phone = forms.CharField(label = 'phone' ,required = True,max_length=10)
 	email = forms.EmailField()
 	city = forms.CharField(label='city' , max_length=100)
-
