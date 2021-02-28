@@ -1,0 +1,100 @@
+body,
+html {
+margin: 0;
+padding: 0;
+height: 100%;
+background: #fff !important;
+}
+.user_card {
+width: 500px;
+height: 500px;
+margin-top: 150px;
+margin-bottom: auto;
+background: linear-gradient(311deg, #f4f493, #ffc871);
+position: relative;
+display: flex;
+justify-content: center;
+flex-direction: column;
+padding: 10px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+border-radius: 5px;
+}
+
+.form_container {
+margin-top: 20px;
+}
+
+#form-title {
+color: #fff;
+text-shadow: 6px 3px 6px rgba(255, 104, 0, 0.65);
+margin-top: -100px;
+position: 10px;
+}
+
+.login_btn {
+width: 100%;
+background: linear-gradient(159deg, #33ccff, #b38ed1);
+color: white !important;
+}
+.login_btn:focus {
+box-shadow: none !important;
+outline: 0px !important;
+}
+.login_container {
+padding: 0 2rem;
+}
+.input-group-text {
+background: #f7ba5b !important;
+color: white !important;
+border: 0 !important;
+border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+box-shadow: none !important;
+outline: 0px !important;
+}
+
+#messages {
+background-color: grey;
+color: #fff;
+padding: 10px;
+margin-top: 10px;
+}
+
+.topnav {
+background: linear-gradient(79deg, #f4f493, #ffc871);
+overflow: hidden;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+position: fixed; 
+top: 0;
+width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+float: left;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+background-color: #ddd;
+color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+color: rgb(255, 102, 0);
+text-shadow: 2px 2px 7px #ebab4a;
+}
