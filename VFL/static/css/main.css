@@ -1,12 +1,19 @@
 .navbar-default{
-    background: linear-gradient(79deg, #f4f493, #ffc871);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    /* position: fixed; 
-  	top: 0;
-  	width: 100%; */
+    background:  #ffc871;
+        overflow: hidden;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    position: fixed; 
+  	  	top: 0;
+  	  	width: 100%;
 }
+<<<<<<< HEAD
 .hello-msg{
   font-size: 18px;
   color: #fff;
   margin-right: 20px;
 }
+=======
+
+
+>>>>>>> 0abef4ee2ecb9f9601625cae70f8300b4a77a6a1
