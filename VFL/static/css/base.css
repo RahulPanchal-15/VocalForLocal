@@ -138,3 +138,131 @@
 .drop-down:hover .drop-down-content {
   display: block;
 }
+
+.menu-bar{
+  overflow: hidden;
+  position:fixed;
+  margin-top: 85px;
+  top: 86px;
+  background: #97bedd;
+  width: 100%;
+  text-align: left;
+}
+
+.menu-bar ul{
+  display : inline-flex;
+  list-style: none;
+  margin-top: unset;
+  margin-bottom: unset;
+}
+
+.menu-bar ul li{
+  width:200;
+  padding-right : 20px;
+  margin-right : 20px;
+  margin : 15px 15px;
+  border-right: 2px solid;
+  color: white;
+  font-weight: bold;
+}
+
+.location input[type="text"] {
+  width: 150px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ffff;
+}
+
+.location input[type="text"]:hover {
+  background-color: #f2f2f2;
+}
+
+.locationbtn{
+  height: 20px;
+  width: 15px;
+  background: #97bedd;
+  border:none;
+}
+
+
+#slideshow { 
+  overflow: hidden; 
+  height: 510px; 
+  width: 900px; 
+  margin: 0 auto; 
+  border-radius:10px ;
+  box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
+-webkit-box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
+-moz-box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
+} 
+  
+.slide { 
+  color: white;
+  float: left; 
+  height: 510px; 
+  width: 900px; 
+} 
+  
+.slide-wrapper { 
+  width: calc(900px * 4); 
+  animation: slide 15s ease infinite; 
+} 
+  
+.slide:nth-child(1) { 
+  background: green; 
+} 
+
+.slide:nth-child(2) { 
+  background: pink; 
+} 
+
+.slide:nth-child(3) { 
+  background: #e1edbb; 
+} 
+
+.slide:nth-child(4) { 
+  background: white; 
+} 
+  
+  
+  
+@keyframes slide { 
+  20% { 
+    margin-left: 0px; 
+  } 
+  
+  40% { 
+    margin-left: calc(-900px * 1); 
+  } 
+  
+  60% { 
+    margin-left: calc(-900px * 2); 
+  } 
+  
+  80% { 
+    margin-left: calc(-900px * 3); 
+  } 
+}
+
+.fixedButton{
+  position: fixed;
+  bottom: 10px;
+  right: 0px; 
+  padding: 20px;
+}
+.roundedFixedBtn{
+height: 60px;
+line-height: 60px;  
+width: 60px;  
+font-size: 2em;
+font-weight: bold;
+border-radius: 50%;
+background-color: #ffc871;
+color: white;
+text-align: center;
+cursor: pointer;
+}
+.roundedFixedBtn:hover{
+background-color: #f4f493;
+}
