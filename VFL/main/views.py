@@ -10,13 +10,16 @@ from django.contrib.auth.decorators import login_required
 
 from datetime import datetime
 #Create your views here.
+from django.db import models
 from .models import Customer,Post
 from .forms import CreateUserForm
 from .forms import CreatePost,ProfileForm
 
 
 def home(request):
-	return render(request,'main/home.html',context={})
+	posts = Post.objects.all()
+	return render(request,'main/home.html',context={'posts':posts})
+
 
 def about(request):
 	return render(request,'main/about.html',context={})
@@ -47,6 +50,7 @@ def upload(request):
 			ct = form.cleaned_data["category"]
 			u = request.user.id
 			print("UID : ",u)
+			print("Customer :", Customer.objects)
 			p = Post(name=na,note=note,user=Customer.objects.get(id=u),date_created=datetime.now().strftime("%H:%M:%S"),category=ct,photo = ph)
 			p.save()
 	form = CreatePost()

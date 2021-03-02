@@ -13,14 +13,23 @@ class Customer(models.Model):
     def __str__(self):
 	    return self.name
 
+    
 
 class Post(models.Model):
     name = models.CharField(max_length=200,null=True)
     note = models.CharField(max_length=1000, null=True)
-    photo = models.FileField(upload_to="images/",null=True,verbose_name="")
+    photo = models.ImageField(upload_to="images/",null=True,verbose_name="")
     user = models.ForeignKey(Customer, null=True, on_delete= models.SET_NULL)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     category = models.CharField(max_length=200, null=True)
    
     def __str__(self):
 	    return self.name
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.photo.url
+        except :
+            url = ''
+        return url
