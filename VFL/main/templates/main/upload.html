@@ -1,13 +1,11 @@
 {% extends 'main/base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content%}
 <form enctype="multipart/form-data" method = "POST" action="/upload/">
     {% csrf_token %}
-    {{form.as_p}}
+    {{form|crispy}}
     <button type="submit", name='save'>Upload</button> 
 </form>
-
-
 <br><br>
 <img src = '{{MEDIA_URL}}{{photo}}'>
 <br><br>
