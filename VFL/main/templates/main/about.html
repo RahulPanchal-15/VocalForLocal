@@ -12,6 +12,7 @@
     }
 
     #bg {
+      background-color: #e4e4e4;
       backdrop-filter: blur(1px);
       background-size: 100%;
       background-position: center center;
@@ -26,6 +27,7 @@
       position: fixed;
       top: 0;
       width: 100%;
+      height: 89px;
     }
 
     .topnav a {
@@ -52,9 +54,37 @@
       overflow: hidden;
       margin-top: -6px;
     }
+
+    .slideshow { 
+      overflow: hidden; 
+      height: 510px; 
+      width: 900px; 
+      margin: 0 auto; 
+      border-radius:10px ;
+      box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
+    -webkit-box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
+    -moz-box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
+    } 
+  
+    .slide { 
+      color: white;
+      float: left; 
+      height: 510px; 
+      width: 900px; 
+    } 
+    .slideshow:hover {
+      transform: translateY(-1rem);
+      box-shadow: 19px 24px 31px 13px rgba(199,231,237,1);
+      -webkit-box-shadow: 19px 24px 31px 13px rgba(199,231,237,1);
+      -moz-box-shadow: 19px 24px 31px 13px rgba(199,231,237,1);
+    }
+
+    .slideshow:hover~.card{
+      transform: translateX(10px);
+    }
   </style>
 
-  <body id="bg">
+  <body id="bg" >
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -77,5 +107,17 @@
         />
       </a>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="slideshow"> 
+        <div class="slide"> 
+          <img src="{% static 'images/about final.jpeg' %}" alt="poster">
+        </div>
+     </div> 
   </body>
 </html>

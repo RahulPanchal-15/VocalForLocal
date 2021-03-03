@@ -3,18 +3,5 @@
 HomePage
 {% endblock %}
 {% block content %}
-<div class="row">
-    {% for p in posts %}
-    <div class="col-lg-4">
-        <img class="thumbnail" src="{{p.imageURL}}">
-        <div class="box-element product">
-            <h6><strong>{{p.name}}</strong></h6>
-            <hr>
-            <button class="btn btn-outline-secondary add-btn update-cart">{{p.note}}</button>
-            <a class="btn btn-outline-success" href="#">View</a>
-            <h4 style="display: inline-block;"><strong>{{p.user}}</strong></h4>
-        </div>
-    </div>
-    {% endfor %}
-</div>
+
 {% endblock %}
