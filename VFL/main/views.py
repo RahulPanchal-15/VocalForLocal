@@ -45,13 +45,14 @@ def upload(request):
 		form = CreatePost(request.POST or None, request.FILES or None)
 		if form.is_valid():
 			na = form.cleaned_data["name"]
-			note = form.cleaned_data["note"]
+			note = form.cleaned_data["description"]
 			ph = form.cleaned_data["image"]
 			ct = form.cleaned_data["category"]
 			u = request.user.id
+			avail = form.cleaned_data["availability"]
 			print("UID : ",u)
 			print("Customer :", Customer.objects)
-			p = Post(name=na,note=note,user=Customer.objects.get(id=u),date_created=datetime.now().strftime("%H:%M:%S"),category=ct,photo = ph)
+			p = Post(name=na,note=note,user=Customer.objects.get(id=u),date_created=datetime.now().strftime("%H:%M:%S"),category=ct,photo = ph,availability = avail)
 			p.save()
 	form = CreatePost()
 	return render(request,'main/upload.html',context={'form':form})
