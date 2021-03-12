@@ -12,7 +12,7 @@ class CreateUserForm(UserCreationForm):
 class CreatePost(forms.Form):
 	name = forms.CharField(label="Name",max_length = 200)
 	category = forms.CharField(label="Category")
-	description = forms.CharField(label="Description",widget=forms.Textarea(attrs={"rows":5,"cols":20}))
+	description = forms.CharField(label="Description",widget=forms.Textarea(attrs={"rows":4,"cols":40}))
 	image = forms.FileField()
 	availability = forms.CharField(label="Shipping..." )
 

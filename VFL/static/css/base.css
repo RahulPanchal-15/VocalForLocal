@@ -17,6 +17,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 5;
 }
 
 .topnav a {
@@ -260,7 +261,9 @@
   bottom: 10px;
   right: 0px; 
   padding: 20px;
+  z-index: 5;
 }
+
 .roundedFixedBtn{
 height: 60px;
 line-height: 60px;  
@@ -273,6 +276,7 @@ color: white;
 text-align: center;
 cursor: pointer;
 }
+
 .roundedFixedBtn:hover{
 background-color: #f4f493;
 }

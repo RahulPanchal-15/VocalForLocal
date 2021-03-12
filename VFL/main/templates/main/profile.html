@@ -79,6 +79,7 @@
       </div>
       {% endif %}
     </div>
+
     <div class="menu-bar">
       <ul>
         <li>
@@ -123,9 +124,9 @@
             </button>
           </li>
       </ul>
-     </div>
-
-     <div class="center">
+    </div>
+    {% if user.is_authenticated %}
+    <div class="center">
       <div class="card">
         <div class="additional">
           <div class="user-card">
@@ -184,8 +185,200 @@
           <h1>Jane Doe</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.</p>
         </div>
+        </div>
       </div>
     </div>
+
+  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div>
+      <hr style="width: 80%; height: 2px;">
+    <h3 style="font: verdana; margin-left: 50px;">POSTS</h3>
+    <br>
+    <div class="card-container">
+      <div class="cards">
+          <header class="article-header">
+              <div>
+                  <div class="category-title">
+                      Article
+                      <span class="date">Feb 19, 2021</span>
+                  </div>
+              </div>
+              <h2 class="article-title">
+
+              </h2>
+          </header>
+          <div class="author">
+              <div class="profile"></div>
+              <div class="info">
+                  <div class="caption"></div>
+                  <div class="name"></div>
+              </div>
+          </div>
+          <!-- <div class="tags">
+              <div>JavaScript</div>
+              <div>HTML</div>
+          </div> -->
+      </div>
+     
+      <div class="cards">
+          <header class="article-header">
+              <div>
+                  <div class="category-title">
+                      Article
+                      <span class="date">Feb 19, 2021</span>
+                  </div>
+              </div>
+              <div class="article-title">
+                  <!-- Custom Theme with Angular Material -->
+              </div>
+          </header>
+          <div class="author">
+              <div class="profile"></div>
+              <div class="info">
+                  <div class="caption"></div>
+                  <div class="name"></div>
+              </div>
+          </div>
+          <!-- <div class="tags">
+              <div>JavaScript</div>
+              <div>HTML</div>
+          </div> -->
+      </div>
+
+      <div class="cards">
+          <header class="article-header">
+              <div>
+                  <div class="category-title">
+                      Article
+                      <span class="date">Feb 19, 2021</span>
+                  </div>
+              </div>
+              <div class="article-title">
+                  <!-- Custom Theme with Angular Material -->
+              </div>
+          </header>
+          <div class="author">
+              <div class="profile"></div>
+              <div class="info">
+                  <div class="caption"></div>
+                  <div class="name"></div>
+              </div>
+          </div>
+          <!-- <div class="tags">
+              <div>JavaScript</div>
+              <div>HTML</div>
+          </div> -->
+      </div>
+
+      <div class="cards">
+          <header class="article-header">
+              <div>
+                  <div class="category-title">
+                      Article
+                      <span class="date">Feb 19, 2021</span>
+                  </div>
+              </div>
+              <div class="article-title">
+                  <!-- Custom Theme with Angular Material -->
+              </div>
+          </header>
+          <div class="author">
+              <div class="profile"></div>
+              <div class="info">
+                  <div class="caption"></div>
+                  <div class="name"></div>
+              </div>
+          </div>
+          <!-- <div class="tags">
+              <div>JavaScript</div>
+              <div>HTML</div>
+          </div> -->
+      </div> 
+
+      <div class="cards">
+        <header class="article-header">
+            <div>
+                <div class="category-title">
+                    Article
+                    <span class="date">Feb 19, 2021</span>
+                </div>
+            </div>
+            <div class="article-title">
+                <!-- Custom Theme with Angular Material -->
+            </div>
+        </header>
+        <div class="author">
+            <div class="profile"></div>
+            <div class="info">
+                <div class="caption"></div>
+                <div class="name"></div>
+            </div>
+        </div>
+        <!-- <div class="tags">
+            <div>JavaScript</div>
+            <div>HTML</div>
+        </div> -->
     </div>
+
+    <div class="cards">
+      <header class="article-header">
+          <div>
+              <div class="category-title">
+                  Article
+                  <span class="date">Feb 19, 2021</span>
+              </div>
+          </div>
+          <div class="article-title">
+              <!-- Custom Theme with Angular Material -->
+          </div>
+      </header>
+      <div class="author">
+          <div class="profile"></div>
+          <div class="info">
+              <div class="caption"></div>
+              <div class="name"></div>
+          </div>
+      </div>
+      <!-- <div class="tags">
+          <div>JavaScript</div>
+          <div>HTML</div>
+      </div> -->
+  </div>
+    </div>
+    {% endif %}
+    <div class="footer">
+      <hr>
+      <h1>Footer</h1>
+    </div>
+
 </body>
 </html>

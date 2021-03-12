@@ -6,9 +6,9 @@ html {
 }
 
 #bg {
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
   background-size: 100%;
-  background-position: center center;
+  background-position-y: -110px ;
   background-repeat: no-repeat;
 }
 
