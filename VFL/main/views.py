@@ -33,12 +33,19 @@ def profile(request):
 			n = form.cleaned_data["u_name"]
 			ph = form.cleaned_data["phone"]
 			e = form.cleaned_data["email"]
+			st = form.cleaned_data["state"]
+			pin = form.cleaned_data["postal_code"]
 			ct = form.cleaned_data["city"]
-			p = Customer(id = request.user.id, name=n, phone=ph, email=e , city = ct)
+			add = form.cleaned_data["address"]
+			b_name = form.cleaned_data["business_name"]
+			p = Customer(id = request.user.id, name=n, phone=ph, email=e , state = st, postal_code = pin, city = ct, address = add, business_name = b_name)
 			p.save()
 			print("SAVED")
 	form = ProfileForm()
-	return render(request,'main/profile.html',context={'form':form})
+	user_posts = Post.objects.filter(owner = request.user.id)
+	return render(request,'main/profile.html',context={'form':form, 'user_posts':user_posts})
+	
+
 
 def upload(request):
 	if request.method == "POST":
@@ -48,11 +55,9 @@ def upload(request):
 			note = form.cleaned_data["description"]
 			ph = form.cleaned_data["image"]
 			ct = form.cleaned_data["category"]
-			u = request.user.id
+			u = Customer.objects.get(id=request.user.id)
 			avail = form.cleaned_data["availability"]
-			print("UID : ",u)
-			print("Customer :", Customer.objects)
-			p = Post(name=na,note=note,user=Customer.objects.get(id=u),date_created=datetime.now().strftime("%H:%M:%S"),category=ct,photo = ph,availability = avail)
+			p = Post(name=na,description=note,owner=u,date_created=datetime.now().strftime("%H:%M:%S"),category=ct,photo = ph,availability = avail,location = u.city)
 			p.save()
 	form = CreatePost()
 	return render(request,'main/upload.html',context={'form':form})

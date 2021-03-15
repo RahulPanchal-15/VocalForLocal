@@ -1,318 +1,163 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block title %} VocalForLocal {% endblock %}</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="{%static '/css/base.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
-      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
 
-  </head>
+<head>
+  <title>{% block title %} VocalForLocal {% endblock %}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="{%static '/css/base.css' %}" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
 
-  <body style="background-color: #e4e4e4;">
-    <div class="topnav">
-      <a class="active" href="{% url 'home' %}">
-        <img
-          id="logo"
-          src="{% static 'images/logo_final.png' %}"
-          alt="VocalForLocal"
-        />
-      </a>
-      <div class="search">
-        <form action="#">
-          <input type="text" placeholder=" Search..." name="search" />
-          <button>
-            <i class="fa fa-search" style="font-size: 18px"> </i>
-          </button>
-        </form>
-      </div>
-      <span class="hello-msg">
-        Hello, {% if user.is_authenticated %} {{request.user}} {% else %} User
-        {% endif %}
-      </span>
-      {% if user.is_authenticated %}
-      <div class="drop-down">
-        <button class="dropbtn">
-          <i class="far fa-user-circle" style="font-size: 40px"> </i>
+</head>
+
+<body style="background-color: #e4e4e4;">
+  <div class="topnav">
+    <a class="active" href="{% url 'home' %}">
+      <img id="logo" src="{% static 'images/logo_final.png' %}" alt="VocalForLocal" />
+    </a>
+    <div class="search">
+      <form action="#">
+        <input type="text" placeholder=" Search..." name="search" />
+        <button>
+          <i class="fa fa-search" style="font-size: 18px"> </i>
         </button>
-        <div class="drop-down-content">
-          <a href="{% url 'profile' %}">Profile</a>
-          <a href="{% url 'logout' %}">Logout</a>
-        </div>
-      </div>
-      {% else %}
-      <div class="drop-down">
-        <button class="dropbtn">
-          <i class="far fa-user-circle" style="font-size: 40px"></i>
-        </button>
-        <div class="drop-down-content">
-          <a href="{% url 'login' %}">SignIn</a>
-        </div>
-      </div>
+      </form>
+    </div>
+    <span class="hello-msg">
+      Hello, {% if user.is_authenticated %} {{request.user}} {% else %} User
       {% endif %}
-    </div>
-    <div class="menu-bar">
-      <ul>
-        <li>
-          <div class="location">
-            <form action="#">
-              <input
-                type="text"
-                placeholder=" Location..."
-                name="location-bar"
-              />
-              <button class="locationbtn">
-                <i
-                  class="fa fa-map-marker-alt"
-                  style="font-size: 18px; padding-right: 8px; color: white"
-                ></i>
-              </button>
-            </form>
-          </div>
-        </li>
-        <li>
-          <i
-            class="fa fa-list-alt"
-            aria-hidden="true"
-            style="font-size: 18px; padding-right: 8px; color: white"
-          ></i
-          >Category
-        </li>
-        <li>
-          <i
-            class="fas fa-filter"
-            style="font-size: 18px; padding-right: 8px; color: white"
-          ></i
-          >Filter
-        </li>
-        <li>
-          <i
-          class="fa fa-info-circle"
-          style="font-size: 18px; padding-right: 2px; color: white">
-        </i>
-          <button class="home-about">
-            <a class="active" href="{% url 'about' %}">About</a>
-          </button>
-        </li>
-      </ul>
-
-    </div>
-	<br>
-	<div id="slideshow"> 
-		<div class="slide-wrapper"> 
-		  <div class="slide"> 
-        <img src="{% static 'images/workout (1).png' %}" alt="poster">
-		  </div> 
-		  <div class="slide">
-        <img src="{% static 'images/Outsource.png' %}" alt="poster">
-		  </div> 
-		  <div class="slide"> 
-        <img src="{% static 'images/showcase (1).png' %}" alt="poster">
-		  </div> 
-		  <div class="slide"> 
-        <img src="{% static 'images/Boost (1).png' %}" alt="poster">
-		  </div>
-		</div> 
-	</div> 
-  <br>
+    </span>
     {% if user.is_authenticated %}
-      <a class="fixedButton" href="{% url 'upload' %}">
-        <div class="roundedFixedBtn"><i class="fa fa-plus"></i></div>
-      </a>
-      {% endif %}
-    <hr style="width: 80%; height: 2px;">
-    <h3 style="font: verdana; margin-left: 50px;">Products Near You</h3>
-    <div class="card-container">
-      <div class="card">
-          <header class="article-header">
-            <img src="{% static 'images/product1.PNG' %}" alt="Product">
-              <div>
-                  <div class="category-title">
-                      {Product Name}
-                      <span class="date">Feb 19, 2021</span>
-                  </div>
-              </div>
-          </header>
-          <hr style="margin: 2px; width: 50%; background-color: white; height: 1px;">
-          <div class="author">
-              <div class="profile">Description</div>
-              <div class="info">
-                  <div class="caption">
-                    <p style="width: 330px;">dhbhbxzkckxzckzckxkzbcxzjcllzxbclxzclsdvfddvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
-                  </div>
-              </div>
-          </div>
+    <div class="drop-down">
+      <button class="dropbtn">
+        <i class="far fa-user-circle" style="font-size: 40px"> </i>
+      </button>
+      <div class="drop-down-content">
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
       </div>
-      <div class="card">
-        <header class="article-header">
-            <img src="{% static 'images/product1.PNG' %}" alt="Product">
-            <div>
-              <div class="category-title">
-                {Product name}
-                <span class="date">Feb 19, 2021</span>
-              </div>
-            </div>
-          </header>
-          <hr style="margin: 2px; width: 50%; background-color: white; height: 1px;">
-          <div class="author">
-            <div class="profile">Description</div>
-              <div class="info">
-                  <div class="caption">
-                    <p style="width: 330px;">dhbhbxzkckxzckzckxkzbcxzjcllzxbclxzclsdvfddvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
-                  </div>
-              </div>
-          </div>
+    </div>
+    {% else %}
+    <div class="drop-down">
+      <button class="dropbtn">
+        <i class="far fa-user-circle" style="font-size: 40px"></i>
+      </button>
+      <div class="drop-down-content">
+        <a href="{% url 'login' %}">SignIn</a>
       </div>
-      <div class="card">
-        <header class="article-header">
-            <img src="{% static 'images/product1.PNG' %}" alt="Product">
-            <div>
-              <div class="category-title">
-                {Product name}
-                <span class="date">Feb 19, 2021</span>
-              </div>
-            </div>
-          </header>
-          <hr style="margin: 2px; width: 50%; background-color: white; height: 1px;">
-          <div class="author">
-            <div class="profile">Description</div>
-              <div class="info">
-                  <div class="caption">
-                    <p style="width: 330px;">dhbhbxzkckxzckzckxkzbcxzjcllzxbclxzclsdvfddvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="card">
-        <header class="article-header">
-            <img src="{% static 'images/product1.PNG' %}" alt="Product">
-            <div>
-              <div class="category-title">
-                {Product name}
-                <span class="date">Feb 19, 2021</span>
-              </div>
-            </div>
-          </header>
-          <hr style="margin: 2px; width: 50%; background-color: white; height: 1px;">
-          <div class="author">
-            <div class="profile">Description</div>
-              <div class="info">
-                  <div class="caption">
-                    <p style="width: 330px;">dhbhbxzkckxzckzckxkzbcxzjcllzxbclxzclsdvfddvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="card">
-        <header class="article-header">
-            <img src="{% static 'images/product1.PNG' %}" alt="Product">
-            <div>
-              <div class="category-title">
-                {Product name}
-                <span class="date">Feb 19, 2021</span>
-              </div>
-            </div>
-          </header>
-          <hr style="margin: 2px; width: 50%; background-color: white; height: 1px;">
-          <div class="author">
-            <div class="profile">Description</div>
-              <div class="info">
-                  <div class="caption">
-                    <p style="width: 330px;">dhbhbxzkckxzckzckxkzbcxzjcllzxbclxzclsdvfddvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="card">
-        <header class="article-header">
-            <img src="{% static 'images/product1.PNG' %}" alt="Product">
-            <div>
-              <div class="category-title">
-                {Product name}
-                <span class="date">Feb 19, 2021</span>
-              </div>
-            </div>
-          </header>
-          <hr style="margin: 2px; width: 50%; background-color: white; height: 1px;">
-          <div class="author">
-            <div class="profile">Description</div>
-              <div class="info">
-                  <div class="caption">
-                    <p style="width: 330px;">dhbhbxzkckxzckzckxkzbcxzjcllzxbclxzclsdvfddvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="card">
-        <header class="article-header">
-            <img src="{% static 'images/product1.PNG' %}" alt="Product">
-            <div>
-              <div class="category-title">
-                {Product name}
-                <span class="date">Feb 19, 2021</span>
-              </div>
-            </div>
-          </header>
-          <hr style="margin: 2px; width: 50%; background-color: white; height: 1px;">
-          <div class="author">
-            <div class="profile">Description</div>
-              <div class="info">
-                  <div class="caption">
-                    <p style="width: 330px;">dhbhbxzkckxzckzckxkzbcxzjcllzxbclxzclsdvfddvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-      
+    </div>
+    {% endif %}
+  </div>
+  <div class="menu-bar">
+    <ul>
+      <li>
+        <div class="location">
+          <form action="#">
+            <input type="text" placeholder=" Location..." name="location-bar" />
+            <button class="locationbtn">
+              <i class="fa fa-map-marker-alt" style="font-size: 18px; padding-right: 8px; color: white"></i>
+            </button>
+          </form>
+        </div>
+      </li>
+      <li>
+        <i class="fa fa-list-alt" aria-hidden="true"
+          style="font-size: 18px; padding-right: 8px; color: white"></i>Category
+      </li>
+      <li>
+        <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i>Filter
+      </li>
+      <li>
+        <i class="fa fa-info-circle" style="font-size: 18px; padding-right: 2px; color: white">
+        </i>
+        <button class="home-about">
+          <a class="active" href="{% url 'about' %}">About</a>
+        </button>
+      </li>
+    </ul>
 
   </div>
-
-    {% block content %}
-      
-		{% endblock %}
+  <br>
+  <div id="slideshow">
+    <div class="slide-wrapper">
+      <div class="slide">
+        <img src="{% static 'images/workout (1).png' %}" alt="poster">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/Outsource.png' %}" alt="poster">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/showcase (1).png' %}" alt="poster">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/Boost (1).png' %}" alt="poster">
+      </div>
+    </div>
   </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <hr />
-    <h5>Footer</h5>
-  </body>
+  <br>
+  {% if user.is_authenticated %}
+  <a class="fixedButton" href="{% url 'upload' %}">
+    <div class="roundedFixedBtn"><i class="fa fa-plus"></i></div>
+  </a>
+  {% endif %}
+  <hr style="width: 80%; height: 2px;">
+  <h3 style="font: verdana; margin-left: 50px;">Products Near You</h3>
+  <div class="card-container">
+    {% for p in posts %}
+    <div class="card">
+      <header class="article-header">
+        <img src="{{p.imageURL}}" alt="Product">
+        <div>
+          <div class="category-title">
+            {{p.name}} <span class="date">{{p.date_created}}</span>
+          </div>
+        </div>
+      </header>
+      <hr style="margin: 2px; width: 50%; background-color: white; height: 1px;">
+      <div class="author">
+        <div class="profile">Description</div>
+        <div class="info">
+          <div class="caption">
+            <p style="width: 330px;">{{p.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% block content %}
+
+  {% endblock %}
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <hr />
+  <h5>Footer</h5>
+</body>
+
 </html>
-
