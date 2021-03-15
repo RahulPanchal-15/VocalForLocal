@@ -365,10 +365,6 @@ body {
   font-weight: 700;
 }
 
-.card .article-header {
-  /* margin-bottom: 20px; */
-}
-
 .card .author {
   display: inline-block;
 }
