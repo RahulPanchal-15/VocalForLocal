@@ -18,14 +18,14 @@ class CreatePost(forms.Form):
 
 
 class ProfileForm(forms.Form):
-	u_name = forms.CharField(label='Name',max_length=100,widget=forms.TextInput(attrs={'placeholder':'Username'}))
-	phone = forms.CharField(label = 'Phone' ,required = True,max_length=10,widget=forms.TextInput(attrs={'placeholder':'Phone no.'}))
-	email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder':'Email'}))
-	business_name = forms.CharField(label='Business Name',max_length=100,widget=forms.TextInput(attrs={'placeholder':'Business name'}))
-	state = forms.CharField(label="State", max_length=20,widget=forms.TextInput(attrs={'placeholder':'State'}))
-	city = forms.CharField(label='City' , max_length=20,widget=forms.TextInput(attrs={'placeholder':'City'}))
-	postal_code = forms.CharField(label="Postal Code", max_length=6,widget=forms.TextInput(attrs={'placeholder':'Pincode'}))
-	address = forms.CharField(label="Address", max_length=100,widget=forms.TextInput(attrs={'placeholder':'Address'}))
+	u_name = forms.CharField(label='Name',max_length=100,widget=forms.TextInput(attrs={'placeholder':''}))
+	phone = forms.CharField(label = 'Phone' ,required = True,max_length=10,widget=forms.TextInput(attrs={'placeholder':''}))
+	email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder':''}))
+	business_name = forms.CharField(label='Business Name',max_length=100,widget=forms.TextInput(attrs={'placeholder':' '}))
+	state = forms.CharField(label="State", max_length=20,widget=forms.TextInput(attrs={'placeholder':''}))
+	city = forms.CharField(label='City' , max_length=20,widget=forms.TextInput(attrs={'placeholder':''}))
+	postal_code = forms.CharField(label="Postal Code", max_length=6,widget=forms.TextInput(attrs={'placeholder':''}))
+	address = forms.CharField(label="Address", max_length=100,widget=forms.TextInput(attrs={'placeholder':''}))
 	
 
 

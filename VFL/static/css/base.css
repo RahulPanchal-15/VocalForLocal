@@ -11,7 +11,7 @@
 }
 
 .topnav {
-  background: #ffc871;
+  background: linear-gradient(311deg, #f4f493, #ffc871);
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   position: fixed;
@@ -102,7 +102,7 @@
 
 .drop-down .dropbtn {
   position: relative;
-  background-color: #ffc871;
+  background:none;
   color: white;
   float: right;
   margin-top: 15px;
@@ -123,7 +123,7 @@
 }
 
 .drop-down-content a {
-  border-radius: 20px;
+  border-radius: 15px;
   margin-top: 5px;
   color: black;
   padding: 4px 10px;
@@ -296,13 +296,12 @@ body {
   width: 100%;
   overflow-x: scroll;
   display: flex;
-	background-color: #e4e4e4;
   padding: 40px 50px 10px 10px;
   position:unset;
 }
 
 ::-webkit-scrollbar {
-  height: 10px;
+  height: 5px;
   width: 10%;
 }
 
@@ -312,7 +311,7 @@ body {
 }
  
 ::-webkit-scrollbar-thumb {
-  background: #c9c9c9; 
+  background: #97bedd; 
   border-radius: 10px;
 }
 

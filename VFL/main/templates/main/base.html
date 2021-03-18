@@ -24,7 +24,7 @@
 
 </head>
 
-<body style="background-color: #e4e4e4;">
+<body style="background-color: rgb(53, 65, 82);">
   <div class="topnav">
     <a class="active" href="{% url 'home' %}">
       <img id="logo" src="{% static 'images/logo_final.png' %}" alt="VocalForLocal" />
@@ -54,7 +54,7 @@
     {% else %}
     <div class="drop-down">
       <button class="dropbtn">
-        <i class="far fa-user-circle" style="font-size: 40px"></i>
+        <i class="far fa-user-circle" style="font-size: 40px; background: none;"></i>
       </button>
       <div class="drop-down-content">
         <a href="{% url 'login' %}">SignIn</a>
@@ -95,7 +95,7 @@
   <div id="slideshow">
     <div class="slide-wrapper">
       <div class="slide">
-        <img src="{% static 'images/workout (1).png' %}" alt="poster">
+        <img src="{% static 'images/workout(1).png' %}" alt="poster">
       </div>
       <div class="slide">
         <img src="{% static 'images/Outsource.png' %}" alt="poster">
@@ -114,8 +114,8 @@
     <div class="roundedFixedBtn"><i class="fa fa-plus"></i></div>
   </a>
   {% endif %}
-  <hr style="width: 80%; height: 2px;">
-  <h3 style="font: verdana; margin-left: 50px;">Products Near You</h3>
+  <hr style="width: 80%; height: 0.5px; background-color: white;">
+  <h3 style="font: verdana; margin-left: 50px; color: white;">Products Near You</h3>
   <div class="card-container">
     {% for p in posts %}
     <div class="card">
@@ -156,8 +156,8 @@
   <br />
   <br />
   <br />
-  <hr />
-  <h5>Footer</h5>
+  <hr style="width: 95%;height: 0.5px; background-color: white;"/>
+  <h3 style="color: white;">Footer</h3>
 </body>
 
 </html>
