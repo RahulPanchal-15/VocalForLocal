@@ -1,3 +1,16 @@
+body {
+  overflow-y: scroll; 
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body{
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
 .hello-msg {
     position: relative;
     float: right;
@@ -5,7 +18,7 @@
     font-weight: 500;
     font-size: 25px;
     color: #fff;
-    margin-right: 40px;
+    margin-right: 50px;
     margin-top: 22px;
     text-align: center;
   }

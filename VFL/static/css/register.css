@@ -41,28 +41,32 @@ html {
   font: optional;
   margin-top: -70px;
 }
+
 .login_btn {
-  width: 150px;
+  width: 250px;
   background-color: #c9d9f5;
-  color: white ;
+  color: white !important;
   font-weight: bold;
   font-size: 20px;
   border-radius: 20px;
   margin-top: 10px;
   padding: 5px 30px;
+  transition: background-color 0.5s;
 }
+
 .login_btn:hover{
   background-color: #98bcfa;
-  border: rgb(182, 242, 247) solid;
-  box-sizing: border-box;
 }
+
 .login_btn:focus {
   box-shadow: none !important;
   outline: 0px !important;
 }
+
 .login_container {
   padding: 0 2rem;
 }
+
 .input-group-text {
   background: #c9d9f5 !important;
   color: white !important;

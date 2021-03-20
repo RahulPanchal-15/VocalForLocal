@@ -344,10 +344,10 @@
 }
 
 .card .general {
-  width: 300px;
+  width: 500px;
   height: 100%;
   position: absolute;
-  right: 90px;
+  right: 10px;
   z-index: 1;
   box-sizing: border-box;
   padding-right: 70px;
@@ -460,6 +460,7 @@
   border-radius: 5px;
   font-size: 18px;
 }
+
 input:hover{
   background: #f1f1f1;
 }

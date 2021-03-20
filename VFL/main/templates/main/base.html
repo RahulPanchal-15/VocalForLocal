@@ -139,6 +139,118 @@
     </div>
     {% endfor %}
   </div>
+  <br>
+  <div class="shortcut-filter">
+    <button id="icon1">
+      <i class="fa fa-cutlery" aria-hidden="true"></i>
+    </button>
+    <button id="icon1">
+      <i class="fa fa-microchip" aria-hidden="true" style="color: white; font-size: 2em;">
+       <div style="font-size: 13px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Electronics</div>
+      </i>
+    </button>
+    <button id="icon1">
+
+    </button>
+    <button id="icon1">
+
+    </button>
+    <button id="icon1">
+
+    </button>
+    <button id="icon1">
+
+    </button>
+    <button id="icon1">
+
+    </button>
+    <button id="icon1">
+
+    </button>
+    
+
+  </div>
+  <br>
+  <hr style="width: 90%; height: 0.5px; background-color: white;">
+  <h3 style="font: verdana; margin-left: 50px; color: white;">Featured</h3>
+  <div class="card-container">
+    {% for p in posts %}
+    <div class="card">
+      <header class="article-header">
+        <img src="{{p.imageURL}}" alt="Product">
+        <div>
+          <div class="category-title">
+            {{p.name}} <span class="date">{{p.date_created}}</span>
+          </div>
+        </div>
+      </header>
+      <hr style="margin: 2px; width: 50%; background-color: white; height: 1px;">
+      <div class="author">
+        <div class="profile">Description</div>
+        <div class="info">
+          <div class="caption">
+            <p style="width: 330px;">{{p.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <br>
+  <h3 style="font: verdana; margin-left: 50px; color: white;">For Endless Munching!</h3>
+  <div class="card-container">
+    {% for p in posts %}
+    <div class="card">
+      <header class="article-header">
+        <img src="{{p.imageURL}}" alt="Product">
+        <div>
+          <div class="category-title">
+            {{p.name}} <span class="date">{{p.date_created}}</span>
+          </div>
+        </div>
+      </header>
+      <hr style="margin: 2px; width: 50%; background-color: white; height: 1px;">
+      <div class="author">
+        <div class="profile">Description</div>
+        <div class="info">
+          <div class="caption">
+            <p style="width: 330px;">{{p.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <br>
+  <h3 style="font: verdana; margin-left: 50px; color: white;">Lockdown Essentials!</h3>
+  <div class="card-container1">
+    {% for p in posts %}
+    <div class="cards1">
+      <header class="article-header1">
+        <div style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; 
+             border-right: solid rgb(216, 214, 214) 2px; background-image: url({{p.imageURL}}); 
+             background-position: center; background-size: cover;">
+          <!-- <img src="{{p.imageURL}}" alt="product-image" 
+          style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; border-right: solid rgb(216, 214, 214) 2px"> -->
+        </div>
+      </header>
+      <div class="author1" style="color: white; margin-left: 320px; width: 350px; height: 100%; margin-top: -290px; padding: 5px;" >
+        <div class="profile1" style="width: 100%; height: fit-content; margin-top: 10px;">{{p.name}} <p>{{p.date_created}}</p></div>
+        <hr style="width: 80%; background-color: whitesmoke;">
+        <div class="info1">
+          <div class="caption1" >Description: </div>
+          <div class="name1" style="  overflow-x: hidden; display: flex; flex-direction: row;flex-wrap: wrap;">
+            {{p.description}}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+
+
 
   {% block content %}
 

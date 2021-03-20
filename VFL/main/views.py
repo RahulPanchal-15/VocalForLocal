@@ -21,8 +21,13 @@ def home(request):
 	return render(request,'main/home.html',context={'posts':posts})
 
 
+def search(request):
+	return render(request,'main/searchResult.html',context={})
+
+
 def about(request):
 	return render(request,'main/about.html',context={})
+
 
 def profile(request):
 	print("IN")
@@ -42,8 +47,9 @@ def profile(request):
 			p.save()
 			print("SAVED")
 	form = ProfileForm()
+	user_profile = Customer.objects.filter(email = request.user.email)
 	user_posts = Post.objects.filter(owner = request.user.id)
-	return render(request,'main/profile.html',context={'form':form, 'user_posts':user_posts})
+	return render(request,'main/profile.html',context={'form':form, 'user_posts':user_posts, 'user_profile':user_profile })
 	
 
 

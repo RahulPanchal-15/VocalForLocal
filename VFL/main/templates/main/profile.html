@@ -147,11 +147,30 @@
           </div>
         </div>
       </div>
+      {% if user.is_authenticated %}
       <div class="general">
-        <h1>Jane Doe</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam
-          vestibulum sodales odio ut pulvinar.</p>
+        <h1 style="color: rgb(139, 139, 139); text-transform: capitalize;">{{request.user}}</h1>
+        <p>
+          <ul style="list-style-type: none; font-size: 17px;">
+            <li>Name: {{user_profile.name}}</li>
+            <br>
+            <li>Email: {{user.email}}</li>
+            <br>
+            <li>Phone: {{c.phone}}</li>
+            <br>
+            <li>Business name: {{c.business_name}}</li>
+            <br>
+            <li>State: {{c.state}}</li>
+            <br>
+            <li>City: {{c.city}}</li>
+            <br>
+            <li>Postal code: {{c.postal_code}}</li>
+            <br>
+            <li>Address: {{c.address}}</li>
+          </ul>
+        </p>
       </div>
+      {% endif %}
     </div>
   </div>
   </div>
@@ -195,18 +214,20 @@
       {% for p in user_posts %}
       <div class="cards">
         <header class="article-header">
-          <div>
-            <img src="{% static 'images/product1.PNG' %}" alt="product-image" 
-            style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; border-right: solid rgb(216, 214, 214) 2px">
+          <div style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; 
+               border-right: solid rgb(216, 214, 214) 2px; background-image: url({{p.imageURL}}); 
+               background-position: center; background-size: cover;">
+            <!-- <img src="{{p.imageURL}}" alt="product-image" 
+            style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; border-right: solid rgb(216, 214, 214) 2px"> -->
           </div>
         </header>
-        <div class="author" style="color: white;margin-left: 320px; width: 350px; height: 100%; margin-top: -290px; padding: 5px;" >
-          <div class="profile" style="width: 100%; height: fit-content; margin-top: 10px;">{Product Name} <p>{date created}</p></div>
+        <div class="author" style="color: white; margin-left: 320px; width: 350px; height: 100%; margin-top: -290px; padding: 5px;" >
+          <div class="profile" style="width: 100%; height: fit-content; margin-top: 10px;">{{p.name}} <p>{{p.date_created}}</p></div>
           <hr style="width: 80%; background-color: whitesmoke;">
           <div class="info">
             <div class="caption" >Description: </div>
-            <div class="name" style="  overflow-x: hidden; display: flex; flex-direction: row;flex-wrap: wrap; overflow-y: scroll;">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet eaque, reiciendis sequi exercitationem accusamus consequatur eligendi id ut a architecto, laborum, at sunt earum autem necessitatibus rem illum? Velit, minus!
+            <div class="name" style="  overflow-x: hidden; display: flex; flex-direction: row;flex-wrap: wrap;">
+              {{p.description}}
             </div>
             <button style="position: fixed;margin-top: 40px; margin-left: 270px;background: none; border: solid white 2px; color: white; border-radius: 5px;">Delete</button>
           </div>
