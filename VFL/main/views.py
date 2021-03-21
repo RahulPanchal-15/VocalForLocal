@@ -47,7 +47,7 @@ def profile(request):
 			p.save()
 			print("SAVED")
 	form = ProfileForm()
-	user_profile = Customer.objects.filter(email = request.user.email)
+	user_profile = Customer.objects.get(id = request.user.id)
 	user_posts = Post.objects.filter(owner = request.user.id)
 	return render(request,'main/profile.html',context={'form':form, 'user_posts':user_posts, 'user_profile':user_profile })
 	

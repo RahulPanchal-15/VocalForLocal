@@ -148,25 +148,25 @@
         </div>
       </div>
       {% if user.is_authenticated %}
-      <div class="general">
-        <h1 style="color: rgb(139, 139, 139); text-transform: capitalize;">{{request.user}}</h1>
+      <div class="general" style="overflow:hidden">
+        <h1 style="color: #354152; text-transform: capitalize;">{{request.user}}</h1>
         <p>
-          <ul style="list-style-type: none; font-size: 17px;">
-            <li>Name: {{user_profile.name}}</li>
+          <ul style="list-style-type: none; font-size: 17px; color: #354152; font-weight: 600;">
+            <li><span style="font-size: 20px; font-weight: bold;">Name:  </span>{{user_profile.name}}</li>
             <br>
-            <li>Email: {{user.email}}</li>
+            <li><span style="font-size: 20px; font-weight: bold;">Email: </span>{{user_profile.email}}</li>
             <br>
-            <li>Phone: {{c.phone}}</li>
+            <li><span style="font-size: 20px; font-weight: bold;">Phone:  </span>{{user_profile.phone}}</li>
             <br>
-            <li>Business name: {{c.business_name}}</li>
+            <li><span style="font-size: 20px; font-weight: bold;">Business name:  </span>{{user_profile.business_name}}</li>
             <br>
-            <li>State: {{c.state}}</li>
+            <li><span style="font-size: 20px; font-weight: bold;">State:  </span>{{user_profile.state}}</li>
             <br>
-            <li>City: {{c.city}}</li>
+            <li><span style="font-size: 20px; font-weight: bold;">City:  </span>{{user_profile.city}}</li>
             <br>
-            <li>Postal code: {{c.postal_code}}</li>
+            <li><span style="font-size: 20px; font-weight: bold;">Postal code:  </span>{{user_profile.postal_code}}</li>
             <br>
-            <li>Address: {{c.address}}</li>
+            <li><span style="font-size: 20px; font-weight: bold;">Address:  </span>{{user_profile.address}}</li>
           </ul>
         </p>
       </div>
@@ -217,19 +217,17 @@
           <div style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; 
                border-right: solid rgb(216, 214, 214) 2px; background-image: url({{p.imageURL}}); 
                background-position: center; background-size: cover;">
-            <!-- <img src="{{p.imageURL}}" alt="product-image" 
-            style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; border-right: solid rgb(216, 214, 214) 2px"> -->
           </div>
         </header>
         <div class="author" style="color: white; margin-left: 320px; width: 350px; height: 100%; margin-top: -290px; padding: 5px;" >
-          <div class="profile" style="width: 100%; height: fit-content; margin-top: 10px;">{{p.name}} <p>{{p.date_created}}</p></div>
+          <div class="profile" style="width: 100%; height: fit-content; margin-top: 10px; font-size: 17px; font-weight: bold;">{{p.name}} <p>{{p.date_created}}</p></div>
           <hr style="width: 80%; background-color: whitesmoke;">
           <div class="info">
-            <div class="caption" >Description: </div>
-            <div class="name" style="  overflow-x: hidden; display: flex; flex-direction: row;flex-wrap: wrap;">
+            <div class="caption" style="font-size: 17px; font-weight: bold;">Description: </div>
+            <div class="name" style="overflow-x: hidden; display: flex; flex-direction: row;flex-wrap: wrap; font-family: Verdana, Geneva, Tahoma, sans-serif;">
               {{p.description}}
             </div>
-            <button style="position: fixed;margin-top: 40px; margin-left: 270px;background: none; border: solid white 2px; color: white; border-radius: 5px;">Delete</button>
+            <button id='delete-btn'>Delete</button>
           </div>
         </div>
       </div>
