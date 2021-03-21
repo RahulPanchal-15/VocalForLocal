@@ -24,7 +24,7 @@
 
 </head>
 
-<body style="background-color: #e4e4e4;">
+<body style="background-color: #354152;">
   <div class="topnav">
     <a class="active" href="{% url 'home' %}">
       <img id="logo" src="{% static 'images/logo_final.png' %}" alt="VocalForLocal" />
@@ -33,7 +33,7 @@
       <form action="#">
         <input type="text" placeholder=" Search..." name="search" />
         <button>
-          <i class="fa fa-search" style="font-size: 18px"> </i>
+          <i class="fa fa-search" style="font-size: 18px;"> </i>
         </button>
       </form>
     </div>
@@ -44,7 +44,7 @@
     {% if user.is_authenticated %}
     <div class="drop-down">
       <button class="dropbtn">
-        <i class="far fa-user-circle" style="font-size: 40px"> </i>
+        <i class="far fa-user-circle" style="font-size: 40px;"> </i>
       </button>
       <div class="drop-down-content">
         <a href="{% url 'profile' %}">Profile</a>
@@ -142,16 +142,35 @@
                 </div>
               </div>
 
-              <button class="save-btn" type="submit" , name='save'>Save</button>
+              <button class="save-btn" type="submit" , name='save' style="border-radius: 30px;">Save</button>
             </form>
           </div>
         </div>
       </div>
+      {% if user.is_authenticated %}
       <div class="general">
-        <h1>Jane Doe</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam
-          vestibulum sodales odio ut pulvinar.</p>
+        <h1 style="color: rgb(139, 139, 139); text-transform: capitalize;">{{request.user}}</h1>
+        <p>
+          <ul style="list-style-type: none; font-size: 17px;">
+            <li>Name: {{user_profile.name}}</li>
+            <br>
+            <li>Email: {{user.email}}</li>
+            <br>
+            <li>Phone: {{c.phone}}</li>
+            <br>
+            <li>Business name: {{c.business_name}}</li>
+            <br>
+            <li>State: {{c.state}}</li>
+            <br>
+            <li>City: {{c.city}}</li>
+            <br>
+            <li>Postal code: {{c.postal_code}}</li>
+            <br>
+            <li>Address: {{c.address}}</li>
+          </ul>
+        </p>
       </div>
+      {% endif %}
     </div>
   </div>
   </div>
@@ -187,38 +206,45 @@
   <br>
 
   <div>
-    <hr style="width: 80%; height: 2px;">
-    <h3 style="font: verdana; margin-left: 50px;">POSTS</h3>
+    <hr style="width: 80%; height: 0.5px; background-color: white;">
+    <h2 style="font: verdana; margin-left: 50px; color: white;">POSTS</h2>
     <br>
+    {% if user_posts %}
     <div class="card-container">
       {% for p in user_posts %}
       <div class="cards">
         <header class="article-header">
-          <div>
-            <div class="category-title">
-              Article
-              <span class="date">Feb 19, 2021</span>
-            </div>
+          <div style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; 
+               border-right: solid rgb(216, 214, 214) 2px; background-image: url({{p.imageURL}}); 
+               background-position: center; background-size: cover;">
+            <!-- <img src="{{p.imageURL}}" alt="product-image" 
+            style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; border-right: solid rgb(216, 214, 214) 2px"> -->
           </div>
-          <h2 class="article-title">
-
-          </h2>
         </header>
-        <div class="author">
-          <div class="profile"></div>
+        <div class="author" style="color: white; margin-left: 320px; width: 350px; height: 100%; margin-top: -290px; padding: 5px;" >
+          <div class="profile" style="width: 100%; height: fit-content; margin-top: 10px;">{{p.name}} <p>{{p.date_created}}</p></div>
+          <hr style="width: 80%; background-color: whitesmoke;">
           <div class="info">
-            <div class="caption"></div>
-            <div class="name"></div>
+            <div class="caption" >Description: </div>
+            <div class="name" style="  overflow-x: hidden; display: flex; flex-direction: row;flex-wrap: wrap;">
+              {{p.description}}
+            </div>
+            <button style="position: fixed;margin-top: 40px; margin-left: 270px;background: none; border: solid white 2px; color: white; border-radius: 5px;">Delete</button>
           </div>
         </div>
       </div>
     {% endfor %}
     </div>
+    {% else %}
+      <div style="width: 900px; height: 550px;background: url('/static/images/def_post.PNG') no-repeat; margin: 1px  420px;">
+
+      </div>
+    {% endif %}
   </div>
   {% endif %}
   <div class="footer">
-    <hr>
-    <h1>Footer</h1>
+    <hr style="width: 95%;height: 0.5px; background-color: white;">
+    <h2 style="color: white;">Footer</h2>
   </div>
 
 </body>

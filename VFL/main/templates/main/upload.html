@@ -34,10 +34,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
 		crossorigin="anonymous"></script>
-
   </head>
 
-  <body style="background-color: #e4e4e4;">
+  <body style="background-color: #354152;">
     <div class="topnav">
       <a class="active" href="{% url 'home' %}">
         <img
@@ -61,7 +60,7 @@
       {% if user.is_authenticated %}
       <div class="drop-down">
         <button class="dropbtn">
-          <i class="far fa-user-circle" style="font-size: 40px"> </i>
+          <i class="far fa-user-circle" style="font-size: 40px;"> </i>
         </button>
         <div class="drop-down-content">
           <a href="{% url 'profile' %}">Profile</a>
@@ -137,7 +136,7 @@
     <br>
     <br>
 
-    <hr style="width: 80%; height: 2px;">
+    <hr style="width: 80%; height: 0.5px; background-color: white;">
     <br>
     <div class="center">
       <div class="card">
@@ -183,10 +182,7 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-lg-5 mb-4">
-                      <button class="upload-btn" type="submit", name='upload' style="font:bold">Upload</button>
-                    </div>
-                    <div class="form-group col-lg-5 mb-4">
-                      <img src = '{{MEDIA_URL}}{{photo}}'>
+                      <button class="upload-btn" type="submit", name='upload' style="font-weight:bold; border-radius: 30px;">Upload</button>
                     </div>
                   </div>
               </form>
@@ -195,8 +191,6 @@
         </div>
       </div>
     </div>
-
-
     <br />
     <br />
     <br />
@@ -223,7 +217,7 @@
     <br />
     <br />
 
-    <hr />
-    <h5>Footer</h5>
+    <hr style="width: 95%;height: 0.5px; background-color: white;"/>
+    <h3 style="color: white;">Footer</h3>
 </body>
 </html>

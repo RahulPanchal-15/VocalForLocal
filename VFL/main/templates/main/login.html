@@ -5,7 +5,7 @@
     <title>Login</title>
   </head>
 
-  <body id="bg" style="background-image: url('/static/images/about.PNG')";>
+  <body id="bg" style="background: #354152";>
     <link rel="stylesheet" type="text/css" href="{%static '/css/login.css' %}">
     <link
       rel="stylesheet"
@@ -25,63 +25,58 @@
       <a class="active" href="{% url 'home' %}">
         <img id='logo-image' src ="{% static 'images/logo_final.png' %}" alt="VocalForLocal"/>
       </a>
-      <a class="about-section" href="{% url 'about' %}">AboutUs</a>
+      <a class="about-section" href="{% url 'about' %}" style="font-size: 20px; font-weight: bold;">AboutUs</a>
     </div>
-    <div class="container h-100">
-      <div class="d-flex justify-content-center h-100">
-        <div class="user_card">
-          <div class="d-flex justify-content-center">
-            <h1 id="form-title">LOGIN</h1>
-          </div>
-          <div class="d-flex justify-content-center form_container">
-            <form method="POST" action="">
-              {% csrf_token %}
-              <div class="input-group mb-3">
-                <div class="input-group-append">
-                  <span class="input-group-text">
-                    <i class="fas fa-user"></i>
-                  </span>
-                </div>
-
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="Username..."
-                  class="form-control"
-                  width="150"
-                />
+    <div class="container">
+      <div class="user">
+        <h1 style="position:absolute; margin: 30px 75px; font-weight: bolder; font-size:50px;">LOGIN</h1>
+      </div>
+      <div class="general">
+        <div style="margin-top: 20px; margin-left: 20px; ">
+          <p style="margin-bottom: 0px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; font-size: 30px; color: #90b7fa;">WELCOME BACK!</p>  
+          Log into your account to view today's clients
+        </div>
+        <div class="d-flex justify-content-center form_container" style="margin-top: 100px;">
+          <form method="POST" action="">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="fas fa-user"></i>
+                </span>
               </div>
-
-              <div class="input-group mb-2">
-                <div class="input-group-append">
-                  <span class="input-group-text">
-                    <i class="fas fa-key"></i>
-                  </span>
-                </div>
-
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password..."
-                  class="form-control"
-                />
-              </div>
-
-              <div class="d-flex justify-content-center mt-3 login_container">
-                <input class="btn login_btn" type="submit" value="Login" />
-              </div>
-            </form>
-          </div>
-          <div class="mt-4">
-            <div class="d-flex justify-content-center links">
-              Don't have an account?
-              <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+              <input type="text" name="username" placeholder="Username..." class="form-control" width="150"/>
             </div>
-            <br>
-            {% for message in messages %}
-            <p id="messages">{{message}}</p>
-            {% endfor %}
+
+            <div class="input-group mb-2">
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="fas fa-key"></i>
+                </span>
+              </div>
+
+              <input
+                type="password"
+                name="password"
+                placeholder="Password..."
+                class="form-control"
+              />
+            </div>
+
+            <div class="d-flex justify-content-center mt-3 login_container">
+              <input class="btn login_btn" type="submit" value="Login" />
+            </div>
+          </form>
+        </div>
+        <div class="mt-4">
+          <div class="d-flex justify-content-center links" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            Don't have an account?
+            <a href="{% url 'register' %}" class="ml-2" style="font-weight: bold; color: #90b7fa;">Sign Up</a>
           </div>
+          <br>
+          {% for message in messages %}
+          <p id="messages">{{message}}</p>
+          {% endfor %}
         </div>
       </div>
     </div>
