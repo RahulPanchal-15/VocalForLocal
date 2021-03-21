@@ -141,6 +141,14 @@
   display: block;
 }
 
+label{
+  margin-right: 5px;
+}
+#id_category,#id_availability{
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
 .menu-bar{
   overflow: hidden;
   position:static;
