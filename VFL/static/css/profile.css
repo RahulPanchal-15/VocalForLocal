@@ -464,3 +464,9 @@
 input:hover{
   background: #f1f1f1;
 }
+
+#id_state{
+  overflow: hidden;
+  width: 202px;
+  border: none;
+}
