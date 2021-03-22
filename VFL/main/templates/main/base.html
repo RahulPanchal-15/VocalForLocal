@@ -64,7 +64,7 @@
   </div>
   <div class="menu-bar">
     <ul>
-      <li>
+      <li style="margin-top: 20px;">
         <div class="location">
           <form action="#">
             <input type="text" placeholder=" Location..." name="location-bar" />
@@ -77,17 +77,14 @@
       <li>
         <i class="fa fa-list-alt" aria-hidden="true"
           style="font-size: 18px; padding-right: 8px; color: white"></i>{{myFilter.form}} {{myFilter1.form}}
-      </li>
-      <li>
-        <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i>Filter
+          <button class="btn btn-outline-secondary" style="border: 1px solid ;color: white;font-weight: bold;"><i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i>Filter</button>
       </li>
       <li>
         <i class="fa fa-info-circle" style="font-size: 18px; padding-right: 2px; color: white">
         </i>
         <button class="home-about">
-          <a class="active" href="{% url 'about' %}">About</a>
+          <a class="active" href="{% url 'about' %}" style="text-decoration: none;">About</a>
         </button>
-        
       </li>
     </ul>
 

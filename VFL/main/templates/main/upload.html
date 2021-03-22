@@ -1,223 +1,191 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block title %} Upload {% endblock %}</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="{%static '/css/upload.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
-      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-  </head>
 
-  <body style="background-color: #354152;">
-    <div class="topnav">
-      <a class="active" href="{% url 'home' %}">
-        <img
-          id="logo"
-          src="{% static 'images/logo_final.png' %}"
-          alt="VocalForLocal"
-        />
-      </a>
-      <div class="search">
-        <form action="#">
-          <input type="text" placeholder=" Search..." name="search" />
-          <button>
-            <i class="fa fa-search" style="font-size: 18px"> </i>
-          </button>
-        </form>
-      </div>
-      <span class="hello-msg">
-        Hello, {% if user.is_authenticated %} {{request.user}} {% else %} User
-        {% endif %}
-      </span>
-      {% if user.is_authenticated %}
-      <div class="drop-down">
-        <button class="dropbtn">
-          <i class="far fa-user-circle" style="font-size: 40px;"> </i>
+<head>
+  <title>{% block title %} Upload {% endblock %}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="{%static '/css/upload.css' %}" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+</head>
+
+<body style="background-color: #354152;">
+  <div class="topnav">
+    <a class="active" href="{% url 'home' %}">
+      <img id="logo" src="{% static 'images/logo_final.png' %}" alt="VocalForLocal" />
+    </a>
+    <div class="search">
+      <form action="#">
+        <input type="text" placeholder=" Search..." name="search" />
+        <button>
+          <i class="fa fa-search" style="font-size: 18px"> </i>
         </button>
-        <div class="drop-down-content">
-          <a href="{% url 'profile' %}">Profile</a>
-          <a href="{% url 'logout' %}">Logout</a>
-        </div>
-      </div>
-      {% else %}
-      <div class="drop-down">
-        <button class="dropbtn">
-          <i class="far fa-user-circle" style="font-size: 40px"></i>
-        </button>
-        <div class="drop-down-content">
-          <a href="{% url 'login' %}">SignIn</a>
-        </div>
-      </div>
+      </form>
+    </div>
+    <span class="hello-msg">
+      Hello, {% if user.is_authenticated %} {{request.user}} {% else %} User
       {% endif %}
+    </span>
+    {% if user.is_authenticated %}
+    <div class="drop-down">
+      <button class="dropbtn">
+        <i class="far fa-user-circle" style="font-size: 40px;"> </i>
+      </button>
+      <div class="drop-down-content">
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
     </div>
-    <div class="menu-bar">
-      <ul>
-        <li>
-          <div class="location">
-            <form action="#">
-              <input
-                type="text"
-                placeholder=" Location..."
-                name="location-bar"
-              />
-              <button class="locationbtn">
-                <i
-                  class="fa fa-map-marker-alt"
-                  style="font-size: 18px; padding-right: 8px; color: white"
-                ></i>
-              </button>
-            </form>
-          </div>
-        </li>
-        <li>
-          <i
-            class="fa fa-list-alt"
-            aria-hidden="true"
-            style="font-size: 18px; padding-right: 8px; color: white"
-          ></i
-          >Category
-        </li>
-        <li>
-          <i
-            class="fas fa-filter"
-            style="font-size: 18px; padding-right: 8px; color: white"
-          ></i
-          >Filter
-        </li>
-        <li>
-            <i
-            class="fa fa-info-circle"
-            style="font-size: 18px; padding-right: 2px; color: white">
-          </i>
-            <button class="home-about">
-              <a class="active" href="{% url 'about' %}">About</a>
+    {% else %}
+    <div class="drop-down">
+      <button class="dropbtn">
+        <i class="far fa-user-circle" style="font-size: 40px"></i>
+      </button>
+      <div class="drop-down-content">
+        <a href="{% url 'login' %}">SignIn</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="menu-bar">
+    <ul>
+      <li>
+        <div class="location">
+          <form action="#">
+            <input type="text" placeholder=" Location..." name="location-bar" />
+            <button class="locationbtn">
+              <i class="fa fa-map-marker-alt" style="font-size: 18px; padding-right: 8px; color: white"></i>
             </button>
-          </li>
-      </ul>
+          </form>
+        </div>
+      </li>
+      <li>
+        <i class="fa fa-list-alt" aria-hidden="true"
+          style="font-size: 18px; padding-right: 8px; color: white"></i>Category
+      </li>
+      <li>
+        <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i>Filter
+      </li>
+      <li>
+        <i class="fa fa-info-circle" style="font-size: 18px; padding-right: 2px; color: whit">
+        </i>
+        <button class="home-about">
+          <a class="active" href="{% url 'about' %}">About</a>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <br>
+
+  <div id="slideshow">
+    <div class="slide-wrapper">
+      <div class="slide">
+        <img src="{% static 'images/up (1).png' %}" alt="poster">
+      </div>
     </div>
-    <br>
+  </div>
 
-    <div id="slideshow"> 
-      <div class="slide-wrapper"> 
-        <div class="slide"> 
-          <img src="{% static 'images/up (1).png' %}" alt="poster">
-        </div> 
-      </div> 
-    </div> 
+  <br>
+  <br>
 
-    <br>
-    <br>
-
-    <hr style="width: 80%; height: 0.5px; background-color: white;">
-    <br>
-    <div class="center">
-      <div class="card">
-        <div class="additional">
-          <div class="user-card">
-            <div class="level center">
-              <h1>NEW POST</h1>
-            </div>
-            <div class="icon">
-              <img id="profile-logo" src="{% static 'images/Capture.PNG' %}" alt="profile-logo">
-            </div>
+  <hr style="width: 80%; height: 0.5px; background-color: white;">
+  <br>
+  <div class="center">
+    <div class="card">
+      <div class="additional">
+        <div class="user-card">
+          <div class="level center">
+            <h1>NEW POST</h1>
+          </div>
+          <div class="icon">
+            <img id="profile-logo" src="{% static 'images/Capture.PNG' %}" alt="profile-logo">
           </div>
         </div>
-        <div class="general">
-          <h1>FORM</h1>
-            <div class="edit-form">
-              {% load crispy_forms_tags %}
-              <form enctype="multipart/form-data" method = "POST" action="/upload/">
-                {% csrf_token %}
-                  <div class="form-row">
-                    <div class="form-group col-lg-5 mb-1">
-                      {{form.name|as_crispy_field}}
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-lg-5 mb-1">
-                      {{form.category|as_crispy_field}}
-                    </div>
-                    &ensp;
-                    <div class="form-group col-lg-5 mb-1">
-                      {{form.availability|as_crispy_field}}
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-lg-5 mb-1">
-                      {{form.description|as_crispy_field}}
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-lg-5 mb-4">
-                      {{ form.image|as_crispy_field }}
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-lg-5 mb-4">
-                      <button class="upload-btn" type="submit", name='upload' style="font-weight:bold; border-radius: 30px;">Upload</button>
-                    </div>
-                  </div>
-              </form>
+      </div>
+      <div class="general">
+        <h1>FORM</h1>
+        <div class="edit-form">
+          {% load crispy_forms_tags %}
+          <form enctype="multipart/form-data" method="POST" action="/upload/">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group col-lg-5 mb-1">
+                {{form.name|as_crispy_field}}
+              </div>
             </div>
-         </div>
+            <div class="form-row">
+              <div class="form-group col-lg-5 mb-1">
+                {{form.category|as_crispy_field}}
+              </div>
+              &ensp;
+              <div class="form-group col-lg-5 mb-1">
+                {{form.availability|as_crispy_field}}
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-5 mb-1">
+                {{form.description|as_crispy_field}}
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-5 mb-4">
+                {{ form.image|as_crispy_field }}
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-5 mb-4">
+                <button class="upload-btn" type="submit" , name='upload'
+                  style="font-weight:bold; border-radius: 30px;">Upload</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+  </div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
 
-    <hr style="width: 95%;height: 0.5px; background-color: white;"/>
-    <h3 style="color: white;">Footer</h3>
+  <hr style="width: 95%;height: 0.5px; background-color: white;" />
+  <h3 style="color: white;">Footer</h3>
 </body>
+
 </html>

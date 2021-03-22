@@ -382,9 +382,11 @@ body{
     border-radius: 5px;
   }
 
-  #id_availability{
+  #id_availability, #id_category{
     border:none;
+    border-radius: 5px;
     overflow: hidden;
     width: 150px;
     color: rgb(110, 110, 110);
   }
+

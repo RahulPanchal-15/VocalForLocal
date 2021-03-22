@@ -144,6 +144,7 @@
 label{
   margin-right: 5px;
 }
+
 #id_category,#id_availability{
   border: none;
   border-radius: 5px;
@@ -177,6 +178,7 @@ label{
 }
 
 .home-about {
+  margin-top: 8px;
   background-color: #97bedd;
   border: none;
 }
