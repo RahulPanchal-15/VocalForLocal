@@ -381,3 +381,9 @@ body{
     border: none;
     border-radius: 5px;
   }
+
+  #id_availability{
+    border:none;
+    overflow: hidden;
+    width: 150px;
+  }

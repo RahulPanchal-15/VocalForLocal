@@ -14,11 +14,17 @@ from django.db import models
 from .models import Customer,Post
 from .forms import CreateUserForm
 from .forms import CreatePost,ProfileForm
+from .filters import *
 
 
 def home(request):
 	posts = Post.objects.all()
-	return render(request,'main/home.html',context={'posts':posts})
+	myFilter=category_filter(request.GET , queryset=posts)
+	# posts=myFilter.qs
+	myFilter1=avlblty_filter(request.GET , queryset=posts)
+	posts=myFilter1.qs
+
+	return render(request,'main/home.html',context={'posts':posts,'myFilter':myFilter,'myFilter1':myFilter1})
 
 
 def search(request):
