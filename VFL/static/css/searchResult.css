@@ -250,3 +250,31 @@
   .dropdown2:hover .drop2 {display: block; margin-top: 5px;}
   
   .dropdown2:hover .filter {background-color: #3e8e41;}
+
+  .container-card{
+    width: 100%;
+    height: 230px;
+    background-color: blanchedalmond; 
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 10px;
+    transition: all 0.5s;
+  }
+  .container-card:hover{
+    transform: translateX(-5px);
+  }
+  .container-card:hover~.container-card{
+    transform: translateY(3px);
+  }
+
+  .image{
+    box-sizing: padding-box;
+    background-image: url("/static/images/product1.PNG");
+    position: absolute;
+    width: 300px;
+    height: 210px;
+    background-size:cover; 
+    background-position: center;
+    padding-right: 5px;
+    border-right:2px black solid;
+  }
