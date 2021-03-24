@@ -267,7 +267,7 @@ body{
   
   .card .additional {
     position: absolute;
-    width: 300px;
+    width: 350px;
     height: 100%;
     background-color: #faea8e;
     transition: width 0.4s;
@@ -279,7 +279,7 @@ body{
   }
   
   .card .additional .user-card {
-    width: 300px;
+    width: 350px;
     height: 100%;
     position: relative;
     float: left;
@@ -351,11 +351,10 @@ body{
   }
 
   #profile-logo {
-    border-radius: 20%;
-    margin-top: 70%;
+    border-radius: 20px;
+    margin-top: 40%;
     margin-left: 50px;
-    width: 200px;
-    height: 200%;
+    width: 250px;
     box-shadow: 17px 16px 38px -1px rgba(235,171,74,0.78);
     -webkit-box-shadow: 17px 16px 38px -1px rgba(235,171,74,0.78);
     -moz-box-shadow: 17px 16px 38px -1px rgba(235,171,74,0.78);

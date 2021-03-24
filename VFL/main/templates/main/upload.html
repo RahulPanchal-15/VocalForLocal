@@ -165,7 +165,7 @@
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-            <h1>NEW POST</h1>
+
           </div>
           <div class="icon">
             <img id="profile-logo" src = "{% static 'images/Capture.PNG' %}" alt="profile-logo">
@@ -173,7 +173,7 @@
         </div>
       </div>
       <div class="general">
-        <h1>FORM</h1>
+        <h1>NEW POST</h1>
         <div class="edit-form">
           {% load crispy_forms_tags %}
           <form enctype="multipart/form-data" method="POST" action="/upload/">
@@ -214,7 +214,6 @@
     </div>
   </div>
   </div>
-
   <script>
     function readURL(input){
       if(input.files && input.files[0]){
@@ -222,14 +221,10 @@
         reader.onload = function(e){
           $('#profile-logo').attr('src',e.target.result);
         };
-
         reader.readAsDataURL(input.files[0]);
       }
     }
   </script>
-
-
-
   <br />
   <br />
   <br />

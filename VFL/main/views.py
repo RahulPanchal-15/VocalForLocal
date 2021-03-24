@@ -19,12 +19,7 @@ from .forms import CreatePost,ProfileForm
 
 def home(request):
 	posts = Post.objects.all()
-	myFilter=category_filter(request.GET , queryset=posts)
-	# posts=myFilter.qs
-	myFilter1=avlblty_filter(request.GET , queryset=posts)
-	# posts=myFilter1.qs
-
-	return render(request,'main/home.html',context={'posts':posts,'myFilter':myFilter,'myFilter1':myFilter1})
+	return render(request,'main/home.html',context={'posts':posts})
 
 
 def search(request):
