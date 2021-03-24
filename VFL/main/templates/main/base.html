@@ -64,22 +64,81 @@
   </div>
   <div class="menu-bar">
     <ul>
-      <li style="margin-top: 20px;">
+      <li>
         <div class="location">
-          <form action="#">
+          <!-- <form action="#">
             <input type="text" placeholder=" Location..." name="location-bar" />
             <button class="locationbtn">
               <i class="fa fa-map-marker-alt" style="font-size: 18px; padding-right: 8px; color: white"></i>
             </button>
-          </form>
+          </form> -->
+          <span style="padding-right: 15px;">
+            <select class="custom-select" style="width: 200px; height: 38px;">
+              <option selected>Location</option>
+              <option value="1">Andhra Pradesh</option>
+              <option value="2">Arunachal Pradesh</option>
+              <option value="3">Assam</option>
+              <option value="4">Bihar</option>
+              <option value="5">Chhattisgarh</option>
+              <option value="6">Goa</option>
+              <option value="7">Gujarat</option>
+              <option value="8">Haryana</option>
+              <option value="9">Himachal Pradesh</option>
+              <option value="10">Jammu & Kashmir</option>
+              <option value="11">Jharkhand</option>
+              <option value="12">Karnataka</option>
+              <option value="13">Kerala</option>
+              <option value="14">Madhya Pradesh</option>
+              <option value="15">Maharashtra</option>
+              <option value="16">Manipur</option>
+              <option value="17">Meghalaya</option>
+              <option value="18">Mizoram</option>
+              <option value="19">Nagaland</option>
+              <option value="20">Odisha</option>
+              <option value="21">Punjab</option>
+              <option value="22">Rajasthan</option>
+              <option value="23">Sikkim</option>
+              <option value="24">Tamil Nadu</option>
+              <option value="25">Telangana</option>
+              <option value="26">Tripura</option>
+              <option value="27">Uttar Pradesh</option>
+              <option value="28">Uttarakhand</option>
+              <option value="29">West Bengal</option>
+            </select>
+            <button class="btn btn-outline-secondary" style="border: 1px solid white;">
+              <i class="fa fa-map-marker-alt" style="color: white;"></i>
+            </button>
+          </span>
         </div>
       </li>
       <li>
         <i class="fa fa-list-alt" aria-hidden="true"
-          style="font-size: 18px; padding-right: 8px; color: white"></i>{{myFilter.form}} {{myFilter1.form}}
+          style="font-size: 18px; padding-right: 8px; color: white"></i>
+          <span style="padding-right: 15px;">
+            <select class="custom-select" style="width: 200px; height: 38px;">
+              <option selected>Category</option>
+              <option value="1">Accessories</option>
+              <option value="2">Art</option>
+              <option value="3">Clothing</option>
+              <option value="4">Electronics</option>
+              <option value="5">Food Items</option>
+              <option value="6">Handicraft</option>
+              <option value="7">Home Decor</option>
+              <option value="8">Others</option>
+            </select>
+          </span>
+          <!-- <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i> -->
+          <span style="padding-right: 15px;">
+            <select class="custom-select" style="width: 200px; height: 38px;">
+              <option selected>Shipping</option>
+              <option value="1">Local</option>
+              <option value="2">Span-India</option>
+              <option value="3">Global</option>
+            </select>
+          </span>
           <button class="btn btn-outline-secondary" style="border: 1px solid ;color: white;font-weight: bold;"><i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i>Filter</button>
       </li>
-      <li>
+      <li style="margin-top: 20px; border: none;">
         <i class="fa fa-info-circle" style="font-size: 18px; padding-right: 2px; color: white">
         </i>
         <button class="home-about">
@@ -87,7 +146,6 @@
         </button>
       </li>
     </ul>
-
   </div>
   <br>
   <div id="slideshow">
@@ -140,30 +198,46 @@
   <br>
   <div class="shortcut-filter">
     <button id="icon1">
-      <i class="fa fa-cutlery" aria-hidden="true"></i>
-    </button>
-    <button id="icon1">
-      <i class="fa fa-microchip" aria-hidden="true" style="color: white; font-size: 2em;">
-       <div style="font-size: 13px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Electronics</div>
+      <!-- <img src="{% static 'images/icon2.png' %}" alt="" style="width: 50px; color: white;"> -->
+      <i class="fas fa-shopping-bag" style="font-size: 40px; color:white">
+        <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; text-transform: uppercase;">Accessories</div>
       </i>
     </button>
     <button id="icon1">
-
+      <!-- <img src="{% static 'images/paint.png' %}" alt="" style="width: 5em; color: white;"> -->
+      <i class="fas fa-palette" aria-hidden="true" style="font-size: 40px ;color: white;">
+        <div style="font-size: 13px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">ART</div>
+      </i>
     </button>
     <button id="icon1">
-
+      <i class="fas fa-tshirt" style="font-size: 35px; color: white;">
+        <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">CLOTHING</div>
+      </i>
     </button>
     <button id="icon1">
-
+      <i class="fa fa-microchip" aria-hidden="true" style="color: white; font-size: 2em;">
+       <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">ELECTRONICS</div>
+      </i>
     </button>
     <button id="icon1">
-
+      <i class="fas fa-utensils" style="font-size: 35px; color: white;"></i>
+        <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white; font-weight: bold;">FOOD ITEMS</div>
+      </i>
     </button>
     <button id="icon1">
-
+      <i class="fas fa-hammer" style="font-size: 35px; color: white;">
+        <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">HANDICRAFT</div>
+      </i>
     </button>
     <button id="icon1">
-
+      <i class="fas fa-home" style="font-size: 35px; color: white;">
+        <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">HOME DECOR</div>
+      </i>
+    </button>
+    <button id="icon1">
+      <i class="fas fa-ellipsis-h" style="font-size: 35px; color: white;">
+        <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">OTHERS</div>
+      </i>
     </button>
     
 
