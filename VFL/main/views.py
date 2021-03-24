@@ -47,6 +47,16 @@ def profile(request):
 			p.save()
 			print("SAVED")
 
+		print("hello")
+		values = request.POST.getlist('confirmation')
+		print(values)
+		if len(values) > 0:
+			post_id = int(values[0])
+			print("{}".format(post_id))
+			post = Post.objects.get(p_id = post_id)
+			post.delete()
+			print("Delete Successful!")
+
 	if(Customer.objects.filter(pk=request.user.id).exists()):
 		user_profile = Customer.objects.get(id = request.user.id)
 		user_posts = Post.objects.filter(owner = request.user.id)
@@ -119,3 +129,10 @@ def loginPage(request):
 def logoutUser(request):
 	logout(request)
 	return redirect('login')
+
+
+def delete_post(request):
+	post_id = request.GET.get('p_id', False)
+	p = Post.objects.get(pk = post_id)
+	context ={'post_id':p}
+	return render(request,'main/delete.html',context)

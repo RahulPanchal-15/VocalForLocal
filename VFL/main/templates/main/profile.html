@@ -149,6 +149,11 @@
     </ul>
   </div>
   {% if user.is_authenticated %}
+  <a class="fixedButton" href="{% url 'upload' %}">
+    <div class="roundedFixedBtn"><i class="fa fa-plus"></i></div>
+  </a>
+  {% endif %}
+  {% if user.is_authenticated %}
   <div class="center">
     <div class="card">
       <div class="additional">
@@ -231,8 +236,6 @@
     </div>
   </div>
   </div>
-
-
   <br>
   <br>
   <br>
@@ -261,7 +264,6 @@
   <br>
   <br>
   <br>
-
   <div>
     <hr style="width: 80%; height: 0.5px; background-color: white;">
     <h2 style="font: verdana; margin-left: 50px; color: white;">POSTS</h2>
@@ -284,7 +286,9 @@
             <div class="name" style="overflow-x: hidden; display: flex; flex-direction: row;flex-wrap: wrap; font-family: Verdana, Geneva, Tahoma, sans-serif;">
               {{p.description}}
             </div>
-            <button id='delete-btn'>Delete</button>
+            <button id='delete-btn' type="submit" name="{{p.p_id}}">
+              <a href="{% url 'delete_post' %}?p_id={{p.p_id}}" style="text-decoration: none; color: white;">DELETE</a>
+            </button>
           </div>
         </div>
       </div>
@@ -292,7 +296,6 @@
     </div>
     {% else %}
       <div style="width: 900px; height: 550px;background: url('/static/images/def_post.PNG') no-repeat; margin: 1px  420px;">
-
       </div>
     {% endif %}
   </div>
