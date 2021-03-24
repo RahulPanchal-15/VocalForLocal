@@ -14,17 +14,12 @@ from django.db import models
 from .models import Customer,Post
 from .forms import CreateUserForm
 from .forms import CreatePost,ProfileForm
-from .filters import *
+
 
 
 def home(request):
 	posts = Post.objects.all()
-	myFilter=category_filter(request.GET , queryset=posts)
-	# posts=myFilter.qs
-	myFilter1=avlblty_filter(request.GET , queryset=posts)
-	posts=myFilter1.qs
-
-	return render(request,'main/home.html',context={'posts':posts,'myFilter':myFilter,'myFilter1':myFilter1})
+	return render(request,'main/home.html',context={'posts':posts})
 
 
 def search(request):
@@ -36,7 +31,6 @@ def about(request):
 
 
 def profile(request):
-	print("IN")
 	if request.method == "POST":
 		form = ProfileForm(request.POST)
 		if form.is_valid():
@@ -52,10 +46,24 @@ def profile(request):
 			p = Customer(id = request.user.id, name=n, phone=ph, email=e , state = st, postal_code = pin, city = ct, address = add, business_name = b_name)
 			p.save()
 			print("SAVED")
-	form = ProfileForm()
-	user_profile = Customer.objects.get(id = request.user.id)
-	user_posts = Post.objects.filter(owner = request.user.id)
-	return render(request,'main/profile.html',context={'form':form, 'user_posts':user_posts, 'user_profile':user_profile })
+
+	if(Customer.objects.filter(pk=request.user.id).exists()):
+		user_profile = Customer.objects.get(id = request.user.id)
+		user_posts = Post.objects.filter(owner = request.user.id)
+		init_dict = {
+			"u_name" : user_profile.name,
+			"phone" : user_profile.phone, 
+			"email" : request.user.email,
+			"business_name" : user_profile.business_name,
+			"state" : user_profile.state,
+			"city" : user_profile.city,
+			"postal_code" : user_profile.postal_code,
+			"address" : user_profile.address,
+		}
+		form = ProfileForm(initial = init_dict)
+		return render(request,'main/profile.html',context={'form':form, 'user_posts':user_posts, 'user_profile':user_profile })
+	form = ProfileForm
+	return render(request,'main/profile.html',context={'form':form})
 	
 
 

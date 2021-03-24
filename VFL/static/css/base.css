@@ -144,6 +144,7 @@
 label{
   margin-right: 5px;
 }
+
 #id_category,#id_availability{
   border: none;
   border-radius: 5px;
@@ -179,6 +180,12 @@ label{
 .home-about {
   background-color: #97bedd;
   border: none;
+  transition: background-color 0.5s;
+  padding: 4px;
+}
+.home-about:hover{
+  background-color: #97ddd4;
+  border-radius: 5px;
 }
 
 .home-about a{
@@ -503,6 +510,6 @@ body {
   transform: translateY(-1rem);
 }
 
-.cards1:hover~.card{
+.cards1:hover~.card1{
   transform: translateX(10px);
 }
