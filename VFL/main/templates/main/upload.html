@@ -112,7 +112,7 @@
             <h1>NEW POST</h1>
           </div>
           <div class="icon">
-            <img id="profile-logo" src="{% static 'images/Capture.PNG' %}" alt="profile-logo">
+            <img id="profile-logo" src = "{% static 'images/Capture.PNG' %}" alt="profile-logo">
           </div>
         </div>
       </div>
@@ -158,6 +158,22 @@
     </div>
   </div>
   </div>
+
+  <script>
+    function readURL(input){
+      if(input.files && input.files[0]){
+        var reader = new FileReader();
+        reader.onload = function(e){
+          $('#profile-logo').attr('src',e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+
+
+
   <br />
   <br />
   <br />
@@ -183,6 +199,7 @@
   <br />
   <br />
   <br />
+
 
   <hr style="width: 95%;height: 0.5px; background-color: white;" />
   <h3 style="color: white;">Footer</h3>

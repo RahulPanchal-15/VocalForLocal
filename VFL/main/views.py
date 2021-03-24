@@ -14,7 +14,7 @@ from django.db import models
 from .models import Customer,Post
 from .forms import CreateUserForm
 from .forms import CreatePost,ProfileForm
-from .filters import *
+
 
 
 def home(request):

@@ -21,7 +21,7 @@ class CreatePost(forms.Form):
 	name = forms.CharField(label="Name",max_length = 200)
 	category = forms.CharField(label="Category",widget=forms.Select(choices=category))
 	description = forms.CharField(label="Description",widget=forms.Textarea(attrs={"rows":2,"cols":40}))
-	image = forms.FileField()
+	image = forms.FileField(widget=forms.ClearableFileInput(attrs={'id':'image-upload','onchange' : 'readURL(this);'}))
 	availability = forms.CharField(label="Shipping...",widget=forms.Select(choices=shipping) )
 
 
