@@ -164,6 +164,7 @@
         <div>
           <div class="category-title">
             {{p.name}} <span class="date">{{p.date_created}}</span>
+            <p><a href = '{% url 'search' key=p.business_name %}'>{{p.business_name}}</a></p>
           </div>
         </div>
       </header>

@@ -115,7 +115,7 @@ def upload(request):
 				form = ProfileForm
 				return render(request,'main/profile.html',context={'form':form})
 			avail = form.cleaned_data["availability"]
-			p = Post(name=na,description=note,owner=u,date_created=datetime.now().strftime("%H:%M:%S"),category=ct,photo = ph,availability = avail,location = u.state)
+			p = Post(name=na,description=note,owner=u,business_name = u.business_name,date_created=datetime.now().strftime("%H:%M:%S"),category=ct,photo = ph,availability = avail,location = u.state)
 			p.save()
 	form = CreatePost()
 	return render(request,'main/upload.html',context={'form':form})
