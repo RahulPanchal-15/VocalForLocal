@@ -9,6 +9,6 @@ urlpatterns = [
     path('register/', views.registerPage, name="register"),
     path('upload/',views.upload,name="upload"),
     path('about/', views.about,name="about"),
-    path('search/', views.search,name="search"),
+    path('search/<str:key>', views.search,name="search"),
     path(r'delete?p_id=[\d]+/', views.delete_post,name="delete_post"),
 ]

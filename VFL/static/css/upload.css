@@ -396,3 +396,7 @@ body{
     color: rgb(110, 110, 110);
   }
 
+  #file-upload-button{
+    border: none;
+    color: #97bedd;
+  }

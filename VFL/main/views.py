@@ -45,7 +45,8 @@ def home(request):
 	return render(request,'main/home.html',context={'posts':posts})
 
 
-def search(request):
+def search(request,key):
+	pass
 	return render(request,'main/searchResult.html',context={})
 
 

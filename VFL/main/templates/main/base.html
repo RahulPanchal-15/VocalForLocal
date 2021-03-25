@@ -30,12 +30,10 @@
       <img id="logo" src="{% static 'images/logo_final.png' %}" alt="VocalForLocal" />
     </a>
     <div class="search">
-      <form action="#">
-        <input type="text" placeholder=" Search..." name="search" />
-        <button>
-          <i class="fa fa-search" style="font-size: 18px"> </i>
-        </button>
-      </form>
+      <input type="text" placeholder=" Search..." name="key" id="search-placeholder" />
+      <button type="submit" onclick="validatePlaceHolder(this)">
+        <i class="fa fa-search" style="font-size: 18px"> </i>
+      </button>
     </div>
     <span class="hello-msg">
       Hello, {% if user.is_authenticated %} {{request.user}} {% else %} User
@@ -65,57 +63,40 @@
   <div class="menu-bar">
     <ul>
       <li>
-        <form method="POST" action="/home/">
-          {% csrf_token %}
-          <div class="location">
-            <!-- <form action="#">
-            <input type="text" placeholder=" Location..." name="location-bar" />
-            <button class="locationbtn">
-              <i class="fa fa-map-marker-alt" style="font-size: 18px; padding-right: 8px; color: white"></i>
-            </button>
-          </form> -->
-            <span style="padding-right: 15px;">
-              <select name="location" class="custom-select" style="width: 200px; height: 38px;">
-                <option selected value= "0">Location</option>
-                <option value="1">Andhra Pradesh</option>
-                <option value="2">Arunachal Pradesh</option>
-                <option value="3">Assam</option>
-                <option value="4">Bihar</option>
-                <option value="5">Chhattisgarh</option>
-                <option value="6">Goa</option>
-                <option value="7">Gujarat</option>
-                <option value="8">Haryana</option>
-                <option value="9">Himachal Pradesh</option>
-                <option value="10">Jammu & Kashmir</option>
-                <option value="11">Jharkhand</option>
-                <option value="12">Karnataka</option>
-                <option value="13">Kerala</option>
-                <option value="14">Madhya Pradesh</option>
-                <option value="15">Maharashtra</option>
-                <option value="16">Manipur</option>
-                <option value="17">Meghalaya</option>
-                <option value="18">Mizoram</option>
-                <option value="19">Nagaland</option>
-                <option value="20">Odisha</option>
-                <option value="21">Punjab</option>
-                <option value="22">Rajasthan</option>
-                <option value="23">Sikkim</option>
-                <option value="24">Tamil Nadu</option>
-                <option value="25">Telangana</option>
-                <option value="26">Tripura</option>
-                <option value="27">Uttar Pradesh</option>
-                <option value="28">Uttarakhand</option>
-                <option value="29">West Bengal</option>
-              </select>
-              <button class="btn btn-outline-secondary" style="border: 1px solid white;">
-                <i class="fa fa-map-marker-alt" style="color: white;"></i>
-              </button>
-            </span>
-          </div>
-      </li>
-      <li>
         <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 18px; padding-right: 8px; color: white"></i>
-        <span style="padding-right: 15px;">
+          <select name="location" class="custom-select" style="width: 200px; height: 38px;">
+            <option selected value= "0">Location</option>
+            <option value="1">Andhra Pradesh</option>
+            <option value="2">Arunachal Pradesh</option>
+            <option value="3">Assam</option>
+            <option value="4">Bihar</option>
+            <option value="5">Chhattisgarh</option>
+            <option value="6">Goa</option>
+            <option value="7">Gujarat</option>
+            <option value="8">Haryana</option>
+            <option value="9">Himachal Pradesh</option>
+            <option value="10">Jammu & Kashmir</option>
+            <option value="11">Jharkhand</option>
+            <option value="12">Karnataka</option>
+            <option value="13">Kerala</option>
+            <option value="14">Madhya Pradesh</option>
+            <option value="15">Maharashtra</option>
+            <option value="16">Manipur</option>
+            <option value="17">Meghalaya</option>
+            <option value="18">Mizoram</option>
+            <option value="19">Nagaland</option>
+            <option value="20">Odisha</option>
+            <option value="21">Punjab</option>
+            <option value="22">Rajasthan</option>
+            <option value="23">Sikkim</option>
+            <option value="24">Tamil Nadu</option>
+            <option value="25">Telangana</option>
+            <option value="26">Tripura</option>
+            <option value="27">Uttar Pradesh</option>
+            <option value="28">Uttarakhand</option>
+            <option value="29">West Bengal</option>
+          </select>
+
           <select name="category-option" class="custom-select" style="width: 200px; height: 38px;">
             <option selected value="0">Category</option>
             <option value="Accessories">Accessories</option>
@@ -127,22 +108,20 @@
             <option value="Home Decor">Home Decor</option>
             <option value="Others">Others</option>
           </select>
-        </span>
-        <!-- <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i> -->
-        <span style="padding-right: 15px;">
-          <select name="availability-option" class="custom-select" style="width: 200px; height: 38px;">
-            <option selected value= "0">Shipping</option>
-            <option value="Local">Local</option>
-            <option value="Span-India">Span-India</option>
-            <option value="Global">Global</option>
-          </select>
-        </span>
-        <button class="btn btn-outline-secondary" type="submit" name="filter-btn" border: 1px solid ;color:
-          white;font-weight: bold;">
-          <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i>Filter
-        </button>
+
+          <span style="padding-right: 15px;">
+            <select name="availability-option" class="custom-select" style="width: 200px; height: 38px;">
+              <option selected value= "0">Shipping</option>
+              <option value="Local">Local</option>
+              <option value="Span-India">Span-India</option>
+              <option value="Global">Global</option>
+            </select>
+          </span>
+          <button class="btn btn-outline-secondary" type="submit" name="filter-btn" style="border: 1px solid ;color:
+            white;font-weight: bold;">
+            <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i>Filter
+          </button>
       </li>
-      </form>
       <li style="margin-top: 20px; border: none;">
         <i class="fa fa-info-circle" style="font-size: 18px; padding-right: 2px; color: white">
         </i>
@@ -340,6 +319,17 @@
     {% endfor %}
   </div>
 
+  <script>
+    function validatePlaceHolder() {
+      var input = document.getElementById("search-placeholder").value
+      if (input != "") {
+        console.log(input)
+        a = "{% url 'search' key='x' %}".replace('x', input)
+        console.log(a)
+        document.location.href = (a)
+      }
+    }
+  </script>
 
 
   {% block content %}
@@ -358,8 +348,12 @@
   <br />
   <br />
   <br />
-  <hr style="width: 95%;height: 0.5px; background-color: white;" />
-  <h3 style="color: white;">Footer</h3>
+  <div class="footer" style="padding-left: 10px;">
+    <hr style="width: 95%;height: 0.5px; background-color: white;"/>
+    <h3 style="color: white;">Contact us at: <span style="margin:0px 5px;"><i class="fab fa-facebook"></i></span> 
+      <span style="margin:0px 5px;"><i class="fab fa-instagram"></i></span><span style="margin:0px 5px;"><i class="fab fa-twitter"></i></span> 
+      <div><span style="font-size: 18px;">Aditya Malwade: 1911091 | Rahul Panchal: 1911097 | Aayush Malde: 1911090</span></div>
+  </div>
 </body>
 
 </html>
