@@ -227,6 +227,32 @@
   justify-content: center;
 }
 
+.fixedButton{
+  position: fixed;
+  bottom: 10px;
+  right: 0px; 
+  padding: 20px;
+  z-index: 5;
+}
+
+.roundedFixedBtn{
+height: 60px;
+line-height: 60px;  
+width: 60px;  
+font-size: 2em;
+font-weight: bold;
+border-radius: 50%;
+background-color: #ffc871;
+color: white;
+text-align: center;
+cursor: pointer;
+}
+
+.roundedFixedBtn:hover{
+background-color: #f4f493;
+}
+
+
 
 .center {
   position: absolute;
