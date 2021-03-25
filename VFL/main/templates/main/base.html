@@ -30,12 +30,10 @@
       <img id="logo" src="{% static 'images/logo_final.png' %}" alt="VocalForLocal" />
     </a>
     <div class="search">
-      <form action="#">
-        <input type="text" placeholder=" Search..." name="search" />
-        <button>
-          <i class="fa fa-search" style="font-size: 18px"> </i>
-        </button>
-      </form>
+      <input type="text" placeholder=" Search..." name="key" id="search-placeholder" />
+      <button type="submit" onclick="validatePlaceHolder(this)">
+        <i class="fa fa-search" style="font-size: 18px"> </i>
+      </button>
     </div>
     <span class="hello-msg">
       Hello, {% if user.is_authenticated %} {{request.user}} {% else %} User
@@ -76,7 +74,7 @@
           </form> -->
             <span style="padding-right: 15px;">
               <select name="location" class="custom-select" style="width: 200px; height: 38px;">
-                <option selected value= "0">Location</option>
+                <option selected value="0">Location</option>
                 <option value="1">Andhra Pradesh</option>
                 <option value="2">Arunachal Pradesh</option>
                 <option value="3">Assam</option>
@@ -131,7 +129,7 @@
         <!-- <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i> -->
         <span style="padding-right: 15px;">
           <select name="availability-option" class="custom-select" style="width: 200px; height: 38px;">
-            <option selected value= "0">Shipping</option>
+            <option selected value="0">Shipping</option>
             <option value="Local">Local</option>
             <option value="Span-India">Span-India</option>
             <option value="Global">Global</option>
@@ -340,6 +338,17 @@
     {% endfor %}
   </div>
 
+  <script>
+    function validatePlaceHolder() {
+      var input = document.getElementById("search-placeholder").value
+      if (input != "") {
+        console.log(input)
+        a = "{% url 'search' key='x' %}".replace('x', input)
+        console.log(a)
+        document.location.href = (a)
+      }
+    }
+  </script>
 
 
   {% block content %}
