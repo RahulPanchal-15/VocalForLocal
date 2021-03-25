@@ -17,9 +17,9 @@ category_opt = ["Accessories","Art","Clothing","Electronics","Food Items","Handi
 				"Others"]
 
 
-state_choices = set([(x,x) for x in states])  
-shipping = set([(x,x) for x in shipping_opt])
-category = set([(x,x) for x in category_opt])
+state_choices =tuple([(x,x) for x in states])  
+shipping = tuple([(x,x) for x in shipping_opt])
+category = tuple([(x,x) for x in category_opt])
 
 # state_choices = (("Andhra Pradesh", "Andhra Pradesh"), ("Arunachal Pradesh ", "Arunachal Pradesh "), 
 # 				 ("Assam", "Assam"), ("Bihar", "Bihar"),("Chhattisgarh", "Chhattisgarh"), 
