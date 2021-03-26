@@ -292,7 +292,6 @@ body{
 
   .image{
     box-sizing: padding-box;
-    background-image: url("/static/images/product1.PNG");
     position: absolute;
     width: 300px;
     height: 210px;

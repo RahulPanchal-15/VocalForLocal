@@ -57,8 +57,12 @@ def search(request,key):
 	customer_qs = Customer.objects.filter(business_name__contains=key)
 	print([x.business_name for x in customer_qs])
 
+	context = {
+		"products_qs":products_qs,
+		"customer_qs":customer_qs
+	}
 
-	return render(request,'main/searchResult.html',context={})
+	return render(request,'main/searchResult.html',context)
 
 
 def about(request):
