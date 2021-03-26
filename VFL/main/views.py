@@ -46,7 +46,18 @@ def home(request):
 
 
 def search(request,key):
-	pass
+	# print(key)
+	qs1 = Post.objects.filter(name__contains=key)
+	# print(qs1)
+	qs2 = Post.objects.filter(description__contains=key)
+	# print(qs2)
+	products_qs = qs1.union(qs2)
+	print(products_qs)
+
+	customer_qs = Customer.objects.filter(business_name__contains=key)
+	print([x.business_name for x in customer_qs])
+
+
 	return render(request,'main/searchResult.html',context={})
 
 
