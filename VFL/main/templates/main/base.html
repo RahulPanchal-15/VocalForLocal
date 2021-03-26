@@ -61,11 +61,15 @@
     {% endif %}
   </div>
   <div class="menu-bar">
+
     <ul>
-      <li>
-        <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 18px; padding-right: 8px; color: white"></i>
+        <li>
+          <form method="POST" action='/home/'>
+            {% csrf_token %}
+          
+          <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 18px; padding-right: 8px; color: white"></i>
           <select name="location" class="custom-select" style="width: 200px; height: 38px;">
-            <option selected value= "0">Location</option>
+            <option selected value="0">Location</option>
             <option value="1">Andhra Pradesh</option>
             <option value="2">Arunachal Pradesh</option>
             <option value="3">Assam</option>
@@ -111,7 +115,7 @@
 
           <span style="padding-right: 15px;">
             <select name="availability-option" class="custom-select" style="width: 200px; height: 38px;">
-              <option selected value= "0">Shipping</option>
+              <option selected value="0">Shipping</option>
               <option value="Local">Local</option>
               <option value="Span-India">Span-India</option>
               <option value="Global">Global</option>
@@ -121,6 +125,8 @@
             white;font-weight: bold;">
             <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i>Filter
           </button>
+
+      </form>
       </li>
       <li style="margin-top: 20px; border: none;">
         <i class="fa fa-info-circle" style="font-size: 18px; padding-right: 2px; color: white">
@@ -164,7 +170,7 @@
         <div>
           <div class="category-title">
             {{p.name}} <span class="date">{{p.date_created}}</span>
-            <p><a href = '{% url 'search' key=p.business_name %}'>{{p.business_name}}</a></p>
+            <p><a href='{% url 'search' key=p.business_name %}'>{{p.business_name}}</a></p>
           </div>
         </div>
       </header>
@@ -350,10 +356,12 @@
   <br />
   <br />
   <div class="footer" style="padding-left: 10px;">
-    <hr style="width: 95%;height: 0.5px; background-color: white;"/>
-    <h3 style="color: white;">Contact us at: <span style="margin:0px 5px;"><i class="fab fa-facebook"></i></span> 
-      <span style="margin:0px 5px;"><i class="fab fa-instagram"></i></span><span style="margin:0px 5px;"><i class="fab fa-twitter"></i></span> 
-      <div><span style="font-size: 18px;">Aditya Malwade: 1911091 | Rahul Panchal: 1911097 | Aayush Malde: 1911090</span></div>
+    <hr style="width: 95%;height: 0.5px; background-color: white;" />
+    <h3 style="color: white;">Contact us at: <span style="margin:0px 5px;"><i class="fab fa-facebook"></i></span>
+      <span style="margin:0px 5px;"><i class="fab fa-instagram"></i></span><span style="margin:0px 5px;"><i
+          class="fab fa-twitter"></i></span>
+      <div><span style="font-size: 18px;">Aditya Malwade: 1911091 | Rahul Panchal: 1911097 | Aayush Malde:
+          1911090</span></div>
   </div>
 </body>
 
