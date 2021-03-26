@@ -63,6 +63,8 @@
           <div class="menu-bar">
             <ul>
               <li>
+                <form method="POST" action='/home/'>
+                  {% csrf_token %}
                 <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 18px; padding-right: 8px; color: white"></i>
                   <select name="location" class="custom-select" style="width: 200px; height: 38px;">
                     <option selected value= "0">Location</option>
@@ -121,6 +123,7 @@
                     white;font-weight: bold;">
                     <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i>Filter
                   </button>
+                </form>
               </li>
               <li style="margin-top: 20px; border: none;">
                 <i class="fa fa-info-circle" style="font-size: 18px; padding-right: 2px; color: white">
@@ -137,12 +140,19 @@
           <div class="container">
             <div class="container-card" >
               <div class="image">
-
+              </div>
+              <div class="card-info">
+                <div class="prod-name" style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; font-size: 25px;">
+                    <p style="margin-bottom: 3px;">sfasasf<span>asfae</span></p>
+                    <div style="margin-bottom: none;color: rgb(167, 167, 167);">dfadf</div>
+                </div>
+                <hr style="background-color: rgb(255, 255, 255); width: 90%; height: 1px; margin: 2px 0px 5px 0px;">
+                <div class="description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi magni molestias facere, amet voluptatem doloremque dolores ea unde repellendus! Unde minima ut quis cum? Laboriosam voluptatum explicabo sunt optio! Numquam.
+                  Error omnis pariatur quas quasi libero in culpa molestiae veniam eius at vel adipisci distinctio facere, voluptatem deleniti. Explicabo minima quas ad eum dicta iure nemo, ut porro iste dolore!
+                </div>
               </div>
             </div>
-            <div class="container-card" ></div>
-
-          </div>
           <br>
           <br>
           <br>
@@ -154,5 +164,6 @@
           <br>
           <br>
           <br>
+          
     </body>
 </html>

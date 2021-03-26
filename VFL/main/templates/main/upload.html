@@ -64,6 +64,8 @@
   <div class="menu-bar">
     <ul>
       <li>
+        <form method="POST" action='/home/'>
+          {% csrf_token %}
         <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 18px; padding-right: 8px; color: white"></i>
           <select name="location" class="custom-select" style="width: 200px; height: 38px;">
             <option selected value= "0">Location</option>
@@ -122,6 +124,7 @@
             white;font-weight: bold;">
             <i class="fas fa-filter" style="font-size: 18px; padding-right: 8px; color: white"></i>Filter
           </button>
+        </form>
       </li>
       <li style="margin-top: 20px; border: none;">
         <i class="fa fa-info-circle" style="font-size: 18px; padding-right: 2px; color: white">
