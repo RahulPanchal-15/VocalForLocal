@@ -273,12 +273,15 @@ body{
 
   .container-card{
     width: 100%;
-    height: 230px;
-    background-color: blanchedalmond; 
+    height: 245px;
+    background-color: #272626; 
     border-radius: 8px;
     margin-top: 20px;
-    padding: 10px;
+    padding: 15px;
     transition: all 0.5s;
+    box-shadow: 0px 0px 29px -5px rgba(0,0,0,0.48);
+    -webkit-box-shadow: 0px 0px 29px -5px rgba(0,0,0,0.48);
+    -moz-box-shadow: 0px 0px 29px -5px rgba(0,0,0,0.48);
   }
   .container-card:hover{
     transform: translateX(-5px);
@@ -289,12 +292,29 @@ body{
 
   .image{
     box-sizing: padding-box;
-    background-image: url("/static/images/product1.PNG");
     position: absolute;
     width: 300px;
     height: 210px;
     background-size:cover; 
     background-position: center;
     padding-right: 5px;
-    border-right:2px black solid;
+    border-right:2px white solid;
+  }
+
+  .card-info{
+    position: absolute;
+    margin-left: 350px;
+    width: 735px;
+    height: 210px;
+  }
+
+  .description{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    width: 700px;
+    height: 100px;
   }
