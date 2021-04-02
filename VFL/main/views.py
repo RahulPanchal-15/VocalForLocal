@@ -197,3 +197,8 @@ def viewProfile(request,business):
 	print(posts)
 	context = {"c":c,"posts":posts}
 	return render(request,'main/viewProfile.html',context)
+
+
+def viewPost(request,business,name):
+    context = {}
+    return render(request,'main/viewPost.html',context)
