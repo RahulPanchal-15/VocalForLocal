@@ -66,7 +66,7 @@
       <li>
         <form method="POST" action='/home/'>
           {% csrf_token %}
-        <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 18px; padding-right: 8px; color: white"></i>
+          <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 18px; padding-right: 8px; color: white"></i>
           <select name="location" class="custom-select" style="width: 200px; height: 38px;">
             <option selected value="0">Location</option>
             <option value="1">Andhra Pradesh</option>
@@ -100,7 +100,7 @@
             <option value="29">West Bengal</option>
           </select>
 
-          <select name="category-option" class="custom-select" style="width: 200px; height: 38px;">
+          <select name="category_option" class="custom-select" style="width: 200px; height: 38px;">
             <option selected value="0">Category</option>
             <option value="Accessories">Accessories</option>
             <option value="Art">Art</option>
@@ -113,7 +113,7 @@
           </select>
 
           <span style="padding-right: 15px;">
-            <select name="availability-option" class="custom-select" style="width: 200px; height: 38px;">
+            <select name="availability_option" class="custom-select" style="width: 200px; height: 38px;">
               <option selected value="0">Shipping</option>
               <option value="Local">Local</option>
               <option value="Span-India">Span-India</option>
@@ -168,7 +168,8 @@
         <div>
           <div class="category-title">
             {{p.name}} <span class="date">{{p.date_created}}</span>
-            <p style="margin-bottom: 1px;"><a href = "{% url 'search' key=p.business_name %}" style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a></p>
+            <p style="margin-bottom: 1px;"><a href="{% url 'search' key=p.business_name %}"
+                style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a></p>
           </div>
         </div>
       </header>
@@ -186,51 +187,49 @@
   </div>
   <br>
   <div class="shortcut-filter">
-    <button id="icon1">
-      <!-- <img src="{% static 'images/icon2.png' %}" alt="" style="width: 50px; color: white;"> -->
+    <button class="icon1" id="Accessories" onclick="sendFilterRequest(this.id)">
       <i class="fas fa-shopping-bag" style="font-size: 40px; color:white">
         <div
           style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; text-transform: uppercase;">
           Accessories</div>
       </i>
     </button>
-    <button id="icon1">
-      <!-- <img src="{% static 'images/paint.png' %}" alt="" style="width: 5em; color: white;"> -->
+    <button class="icon1" id="Art" onclick="sendFilterRequest(this.id)">
       <i class="fas fa-palette" aria-hidden="true" style="font-size: 40px ;color: white;">
         <div style="font-size: 13px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">ART</div>
       </i>
     </button>
-    <button id="icon1">
+    <button class="icon1" id="Clothing" onclick="sendFilterRequest(this.id)">
       <i class="fas fa-tshirt" style="font-size: 35px; color: white;">
         <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">CLOTHING</div>
       </i>
     </button>
-    <button id="icon1">
+    <button class="icon1" id="Electronics" onclick="sendFilterRequest(this.id)">
       <i class="fa fa-microchip" aria-hidden="true" style="color: white; font-size: 2em;">
         <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">ELECTRONICS
         </div>
       </i>
     </button>
-    <button id="icon1">
+    <button class="icon1" id="Food Items" onclick="sendFilterRequest(this.id)">
       <i class="fas fa-utensils" style="font-size: 35px; color: white;"></i>
       <div
         style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white; font-weight: bold;">
         FOOD ITEMS</div>
       </i>
     </button>
-    <button id="icon1">
+    <button class="icon1" id="Handicraft" onclick="sendFilterRequest(this.id)">
       <i class="fas fa-hammer" style="font-size: 35px; color: white;">
         <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">
           HANDICRAFT</div>
       </i>
     </button>
-    <button id="icon1">
+    <button class="icon1" id="Home Decor" onclick="sendFilterRequest(this.id)">
       <i class="fas fa-home" style="font-size: 35px; color: white;">
         <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">
           HOME DECOR</div>
       </i>
     </button>
-    <button id="icon1">
+    <button class="icon1" id="Others" onclick="sendFilterRequest(this.id)">
       <i class="fas fa-ellipsis-h" style="font-size: 35px; color: white;">
         <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">
           OTHERS</div>
@@ -301,8 +300,6 @@
         <div style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; 
              border-right: solid rgb(216, 214, 214) 2px; background-image: url({{p.imageURL}}); 
              background-position: center; background-size: cover;">
-          <!-- <img src="{{p.imageURL}}" alt="product-image" 
-          style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; border-right: solid rgb(216, 214, 214) 2px"> -->
         </div>
       </header>
       <div class="author1"
@@ -326,15 +323,62 @@
 
   <script>
     function validatePlaceHolder() {
-      var input = document.getElementById("search-placeholder").value
       if (input != "") {
         console.log(input)
         a = "{% url 'search' key='x' %}".replace('x', input)
-        console.log(a)
-        document.location.href = (a)
+        console.log(a);
+        document.location.href = (a);
+        // 
+        // headers: {
+        //   'Content-Type': 'application/json',
+        //     'X-CSRFToken' : token,
+        // }
+        // const data = { location : '0', category_option : choice, availability_option };
       }
+    };
+
+    // function sendFilterRequest(clicked) {
+    //   var xhr = new XMLHttpRequest();
+    //   const token = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    //   xhr.open('POST', "{% url 'home' %}", true);
+    //   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //   xhr.setRequestHeader('X-CSRFToken',token)
+    //   xhr.onload = function () {
+    //     console.log(this);
+    //   };
+    //   xhr.send('location=0&category_option='+clicked+'&availability_option=0');
+    // }
+
+    function sendFilterRequest(clicked) {
+      var x = document.querySelector('[name=csrfmiddlewaretoken]').value;
+      console.log(x);
+      var formElement = document.createElement("form");
+      formElement.setAttribute("method", "post");
+      formElement.setAttribute("action", "{% url 'home' %}");
+      formElement.setAttribute("target", "_parent");
+      var hiddenField1 = document.createElement("input");
+      hiddenField1.setAttribute("name","location");
+      hiddenField1.setAttribute("value","0");
+      formElement.appendChild(hiddenField1);
+      var hiddenField2 = document.createElement("input");
+      hiddenField2.setAttribute("name","category_option");
+      hiddenField2.setAttribute("value",clicked);
+      formElement.appendChild(hiddenField2);
+      var hiddenField3 = document.createElement("input");
+      hiddenField3.setAttribute("name","availability_option");
+      hiddenField3.setAttribute("value","0");
+      formElement.appendChild(hiddenField3);
+      var csrf = document.createElement("input");
+      csrf.setAttribute("name","csrfmiddlewaretoken");
+      csrf.setAttribute("value",x);
+      formElement.appendChild(csrf);
+      document.body.appendChild(formElement);
+      formElement.submit();
     }
+
   </script>
+
+
 
 
   {% block content %}

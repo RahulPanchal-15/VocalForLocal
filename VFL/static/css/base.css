@@ -425,7 +425,7 @@ body {
   justify-content: center;
 }
 
-#icon1{
+.icon1{
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -435,7 +435,7 @@ body {
   transition: all 0.5s;
 }
 
-#icon1:hover{
+.icon1:hover{
   background-color: #97bedd ;
   transform: scale(1.1);
 }

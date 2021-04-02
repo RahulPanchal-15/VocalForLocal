@@ -16,29 +16,35 @@ from .forms import CreateUserForm
 from .forms import CreatePost,ProfileForm
 
 from. forms import states
+import json 
 
 def home(request):
 	posts = Post.objects.all()
-	if request.method == "POST":
-		category = request.POST['category-option']
-		avail = request.POST['availability-option']
+	locat = None
+	avail = None
+	category = None
+	if request.method == "POST" :
 		locat = request.POST['location']
-		print(category)
-		print(avail)
-		print(locat)
+		category = request.POST['category_option']
+		avail = request.POST['availability_option']
+		
+		# print(category)
+		# print(avail)
+		# print(locat)
+
 		qs1 = Post.objects.all()
 		qs2 = Post.objects.all()
 		qs3 = Post.objects.all()
 		if(category!='0'):
 			qs1 = qs1.filter(category = category)
-			print(qs1)
+			# print(qs1)
 		if(avail!='0'):
 			qs2 = qs2.filter(availability = avail)
-			print(qs2)
+			# print(qs2)
 		if(locat!='0'):
-			print(states[int(locat)-1])
+			# print(states[int(locat)-1])
 			qs3 = qs3.filter(location = states[int(locat)-1])
-			print(qs3)
+			# print(qs3)
 		qs4 = qs1.intersection(qs2,qs3)
 		print(qs4)
 		return render(request,'main/home.html',context={'posts':qs4})
