@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 
@@ -187,6 +187,13 @@ def delete_post(request):
 	return render(request,'main/delete.html',context)
 
 
-def viewProfile(request):
-	context = {}
+def viewProfile(request,business):
+	try:
+		c = Customer.objects.get(business_name = business)
+	except Customer.DoesNotExist:
+		raise Http404("No such Business is currently registered with VFL.")
+	posts = Post.objects.filter(owner = c)
+	print(c)
+	print(posts)
+	context = {"c":c,"posts":posts}
 	return render(request,'main/viewProfile.html',context)
