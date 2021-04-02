@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 #Create your views here.
 from django.db import models
-from .models import Customer,Post
+from .models import Comment,Customer,Post
 from .forms import CreateUserForm
 from .forms import CreatePost,ProfileForm
 
@@ -200,5 +200,17 @@ def viewProfile(request,business):
 
 
 def viewPost(request,business,name):
-    context = {}
-    return render(request,'main/viewPost.html',context)
+	if request.method == "POST":
+		c_text = request.POST["c_text"]
+		p_id = Post.objects.get(p_id = request.POST["p_id"])
+		c_by = Customer.objects.get(id = request.user.id)
+		comment = Comment(text = c_text,p_id= p_id, c_by = c_by)
+		comment.save()
+		print("Commented!!!")
+	try:
+		p = Post.objects.filter(business_name=business,name=name)[0]
+	except Post.DoesNotExist:
+		raise Http404("No such Product is available with {}".format(business))
+	comments = Comment.objects.filter(p_id = p)
+	context = {"p":p,"comments":comments}
+	return render(request,'main/viewPost.html',context)

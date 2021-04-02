@@ -73,15 +73,15 @@
     </div>
     <div id="image-card">
       <div id="pdt-icon">
-        <img src="{% static 'images/product1.PNG' %}" alt="product img" id="pdt-img" style="width: 350px;height: 320px; background-position: center; background-size: cover; border-radius: 50%;">
+        <img src="{{p.imageURL}}" alt="product img" id="pdt-img" style="width: 350px;height: 320px; background-position: center; background-size: cover; border-radius: 50%;">
       </div>
       <div id="pdt-info">
         <h1 id="pdt-name">
-          Product Name{}
+          {{p.name}}
         </h1>
         <hr style="width:90%; ">
         <h2 id="price">
-          Price
+          {{p.date_created}}
         </h2>
       </div>
       <div id="details">
@@ -90,40 +90,28 @@
         </h1>
         <hr style="text-align: center;margin-top: 17px;width: 90%;">
         <div id="description-text">
-          <p style="width: 320px; overflow-wrap: break-word; font-size: large;">{} Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum cum, ratione reiciendis facere odio consequatur blanditiis in doloribus error vero nemo ipsa totam. Ab excepturi eius labore doloribus temporibus explicabo.</p>
+          <p style="width: 320px; overflow-wrap: break-word; font-size: large;">{{p.description}}</p>
         </div>
       </div>
     </div>
     <div id="comments">
       <h2 style="text-align: center;margin-top: 17px; font-size: 40px;">Reviews</h2>
       <div id="comment-container">
+        {% for c in comments %}
         <div class="comment-card">
-          <span><i class="far fa-user" style="font-size: 25px; color: white; margin-right: 10px;"></i></span>
-          <span style="font-size: 20px;font-weight: bold;">{USER name} </span>
-          <span style="font-size: 19px;font-weight: 300;"> {comment)</span>
+          <span><i class="far fa-user" style="font-size: 25px; color: white; margin-right: 10px;">{{c.c_by}}</i></span>
+          <span style="font-size: 20px;font-weight: bold;">{{c.text}}</span>
+          <span style="font-size: 19px;font-weight: 300;"> {{c.timestamp}}</span>
         </div>
-        <div class="comment-card" >
-        </div>
-        <div class="comment-card" >
-        </div>
-        <div class="comment-card">
-        </div>
-        <div class="comment-card">
-        </div>
-        <div class="comment-card">
-        </div>
-        <div class="comment-card">
-        </div>
-        <div class="comment-card">
-        </div>
-        <div class="comment-card">
-        </div>
-        <div class="comment-card">
-        </div>
+        {% endfor%}
       </div>
       <div id="comment-box">
-        <input type="text" placeholder="Add comment" id="review">
-        <button type="submit" style="background: none;border: none;"><i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 25px;color: white;"></i></button>
+        <form method="POST" action = "{% url 'viewPost' business=p.business_name name=p.name %}">
+          {% csrf_token %}
+          <input type="text" placeholder="Add comment" id="review" name="c_text">
+          <input type="hidden" name="p_id" value = "{{p.p_id}}">
+          <button type="submit" style="background: none;border: none;"><i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 25px;color: white;"></i></button>
+        </form>
       </div>
     </div>
     <br>
