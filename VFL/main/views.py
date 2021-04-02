@@ -185,3 +185,8 @@ def delete_post(request):
 	p = Post.objects.get(pk = post_id)
 	context ={'post_id':p}
 	return render(request,'main/delete.html',context)
+
+
+def viewProfile(request):
+	context = {}
+	return render(request,'main/viewProfile.html',context)
