@@ -184,3 +184,8 @@ def delete_post(request):
 def viewProfile(request):
 	context = {}
 	return render(request,'main/viewProfile.html',context)
+
+
+def viewPost(request):
+    context = {}
+    return render(request,'main/viewPost.html',context)

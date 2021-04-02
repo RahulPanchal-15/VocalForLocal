@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="{%static '/css/viewPost.css' %}">
+  <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous" />
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <title>ViewPost</title>
+
+</head>
+
+<body style="background-color: rgb(37, 50, 75);">
+  <div class="topnav">
+    <a class="active" href="{% url 'home' %}">
+      <img id="logo" src="{% static 'images/logo_final.png' %}" alt="VocalForLocal" />
+    </a>
+    <div class="search">
+      <input type="text" placeholder=" Search..." name="key" id="search-placeholder" />
+      <button type="submit" onclick="validatePlaceHolder(this)">
+        <i class="fa fa-search" style="font-size: 18px"> </i>
+      </button>
+    </div>
+    <span class="hello-msg">
+      Hello, {% if user.is_authenticated %} {{request.user}} {% else %} User
+      {% endif %}
+    </span>
+    {% if user.is_authenticated %}
+    <div class="drop-down">
+      <button class="dropbtn">
+        <i class="far fa-user-circle" style="font-size: 40px"> </i>
+      </button>
+      <div class="drop-down-content">
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+    {% else %}
+    <div class="drop-down">
+      <button class="dropbtn">
+        <i class="far fa-user-circle" style="font-size: 40px; background: none;"></i>
+      </button>
+      <div class="drop-down-content">
+        <a href="{% url 'login' %}">SignIn</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="container-fluid">
+    <div id="cont1">
+      <div class="row" style="margin-left: 30px;">
+        <div class="col1 col-sm-5" style="height:95%;border-right: 2px solid #ffff;">
+          <h1>Post</h1>
+          <div class="icon">
+            <img id="profile-logo" src="{% static 'images/profile.PNG' %}" alt="profile-logo">
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <h1 style="border-bottom: 2px solid #ffff;">Name<br>{}</Name>
+          </h1>
+          <h2 style="border-bottom: 2px solid #ffff;">description<br>{}</h2>
+          <h2 style="border-bottom: 2px solid #ffff;">Price<br>{}</h2>
+        </div>
+      </div>
+      <div>
+        <div>
+          <h3 style="color: white;margin-left: 30px ;">Comments: </h3>
+        </div>
+        <div class="comment">
+          <input type="text" placeholder=" Comment" name="key" id="comment-placeholder" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer" style="padding-left: 10px;">
+  </div>
+</body>
+
+</html>
