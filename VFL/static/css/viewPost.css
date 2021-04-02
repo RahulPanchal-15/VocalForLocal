@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .hello-msg {
+    position: relative;
+    float: right;
+    font: verdana;
+    font-weight: 500;
+    font-size: 25px;
+    color: #fff;
+    margin-right: 50px;
+    margin-top: 22px;
+    text-align: center;
+  }
+  .topnav {
+    background: linear-gradient(311deg, #f4f493, #ffc871);
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #f4f493;
+  }
+  
+  .topnav a.active {
+    color: rgb(255, 102, 0);
+    text-shadow: 2px 2px 7px #ebab4a;
+  }
+  
+  .topnav a.profile-pointer {
+    color: #ffff;
+    text-shadow: 2px 2px 7px #ebab4a;
+    float: right;
+    position: relative;
+    margin-right: 10px;
+    margin-top: 7px;
+  }
+  
+  .topnav a.profile-pointer:hover {
+    background-color: #f4f493;
+    border-radius: 50%;
+  }
+  
+  .search input[type="text"] {
+    width: 500px;
+    height: 40px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    background-color: #ffff;
+  }
+  
+  .search input[type="text"]:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .search {
+    float: left;
+    margin-left: 200px;
+    margin-top: 1px;
+  
+  }
+  
+  .search button {
+    height: 40px;
+    width: 40px;
+    background-color: #f4f493;
+    color: #ffff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    float: right;
+    margin-top: 20px;
+    padding: 5px 10px;
+    margin-right: 16px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #logo {
+    width: 300px;
+    height: 100%;
+    overflow: hidden;
+    margin-top: -6px;
+  }
+  
+  .drop-down {
+    overflow: hidden;
+  }
+  
+  .drop-down .dropbtn {
+    position: relative;
+    background:none;
+    color: white;
+    float: right;
+    margin-top: 15px;
+    margin: 0;
+    padding: 20px 20px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .drop-down-content {
+    min-width: 160px;
+    margin-top: 2.5px;
+    border-radius: 20px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  .drop-down-content a {
+    border-radius: 15px;
+    margin-top: 5px;
+    color: black;
+    padding: 4px 10px;
+    display: block;
+    float: none;
+    text-decoration: none;
+    text-align: left;
+  }
+  
+  .drop-down-content a:hover {
+    background-color: #f4f493;
+  }
+  
+  .drop-down:hover .drop-down-content {
+    display: block;
+  }
+  
+  label{
+    margin-right: 5px;
+  }
+  
+  #id_category,#id_availability{
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  #cont1{
+      margin-top: 100px;
+      margin-left: 150px;
+      width: 1200px;
+      height: 800px;
+      background-color: aqua;
+      border-radius: 10px;
+      box-shadow: 0px 0px 29px -5px rgba(0,0,0,0.48);
+  }
+  /* Clear floats */
+  .row{
+    height: 600px;
+    border-bottom: 2px solid #ffff;
+    width:95%; 
+    align-content: center;
+  }
+  
+  #profile-logo {
+    margin-top: 10%;
+    margin-left: 45px;
+    width: 400px;
+  }
+
+  .comment input[type="text"] {
+    width: 800px;
+    height: 40px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    background-color: #ffff;
+  }
+  
+  .comment input[type="text"]:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .comment {
+    float: left;
+    margin-left: 100px;
+    margin-top: 1px;
+  }
+
+  .comment{
+    width: 500px;
+    align-items: center;
+  }
