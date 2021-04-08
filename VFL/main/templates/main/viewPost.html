@@ -1,9 +1,6 @@
 {% load static %}
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
   <link rel="stylesheet" href="{%static '/css/viewPost.css' %}">
   <meta charset="UTF-8">
@@ -71,32 +68,53 @@
     {% endif %}
   </div>
   <div class="container-fluid">
-    <div id="cont1">
-      <div class="row" style="margin-left: 30px;">
-        <div class="col1 col-sm-5" style="height:95%;border-right: 2px solid #ffff;">
-          <h1>Post</h1>
-          <div class="icon">
-            <img id="profile-logo" src="{% static 'images/profile.PNG' %}" alt="profile-logo">
-          </div>
-        </div>
-        <div class="col-sm-7">
-          <h1 style="border-bottom: 2px solid #ffff;">Name<br>{}</Name>
-          </h1>
-          <h2 style="border-bottom: 2px solid #ffff;">description<br>{}</h2>
-          <h2 style="border-bottom: 2px solid #ffff;">Price<br>{}</h2>
-        </div>
+    <div id="post-card">
+      <h2 style="text-align: center;margin-top: 17px; font-size: 40px;">Product Details</h2>
+    </div>
+    <div id="image-card">
+      <div id="pdt-icon">
+        <img src="{{p.imageURL}}" alt="product img" id="pdt-img" style="width: 350px;height: 320px; background-position: center; background-size: cover; border-radius: 50%;">
       </div>
-      <div>
-        <div>
-          <h3 style="color: white;margin-left: 30px ;">Comments: </h3>
-        </div>
-        <div class="comment">
-          <input type="text" placeholder=" Comment" name="key" id="comment-placeholder" />
+      <div id="pdt-info">
+        <h1 id="pdt-name">
+          {{p.name}}
+        </h1>
+        <hr style="width:90%; ">
+        <h2 id="price">
+          {{p.date_created}}
+        </h2>
+      </div>
+      <div id="details">
+        <h1 id="description">
+           Description 
+        </h1>
+        <hr style="text-align: center;margin-top: 17px;width: 90%;">
+        <div id="description-text">
+          <p style="width: 320px; overflow-wrap: break-word; font-size: large;">{{p.description}}</p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer" style="padding-left: 10px;">
+    <div id="comments">
+      <h2 style="text-align: center;margin-top: 17px; font-size: 40px;">Reviews</h2>
+      <div id="comment-container">
+        {% for c in comments %}
+        <div class="comment-card">
+          <span><i class="far fa-user" style="font-size: 25px; color: white; margin-right: 10px;">{{c.c_by}}</i></span>
+          <span style="font-size: 20px;font-weight: bold;">{{c.text}}</span>
+          <span style="font-size: 19px;font-weight: 300;"> {{c.timestamp}}</span>
+        </div>
+        {% endfor%}
+      </div>
+      <div id="comment-box">
+        <form method="POST" action = "{% url 'viewPost' business=p.business_name name=p.name %}">
+          {% csrf_token %}
+          <input type="text" placeholder="Add comment" id="review" name="c_text">
+          <input type="hidden" name="p_id" value = "{{p.p_id}}">
+          <button type="submit" style="background: none;border: none;"><i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 25px;color: white;"></i></button>
+        </form>
+      </div>
+    </div>
+    <br>
   </div>
 </body>
 

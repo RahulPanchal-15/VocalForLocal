@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.expressions import F
 
 # Create your models here.
 
@@ -20,14 +19,12 @@ class Customer(models.Model):
 	    return self.name
 
 
-    
-
 class Post(models.Model):
     p_id = models.IntegerField(primary_key=True, null=False)
     name = models.CharField(max_length=50,null=True)
     description = models.CharField(max_length=1000, null=True)
     photo = models.ImageField(upload_to="images/",null=True,verbose_name="")
-    owner = models.ForeignKey(Customer, null=True, on_delete= models.SET_NULL)
+    owner = models.ForeignKey(Customer, null=True, on_delete= models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     category = models.CharField(max_length=100, null=True)
     availability = models.CharField(max_length=20, null=True)
@@ -45,3 +42,19 @@ class Post(models.Model):
         except :
             url = ''
         return url
+
+
+class Comment(models.Model):
+    c_id = models.IntegerField(primary_key = True, null = False)
+    text = models.CharField(max_length=200, null=True)
+    p_id = models.ForeignKey(Post, null =True, on_delete = models.CASCADE)
+    c_by = models.ForeignKey(Customer, null=True, on_delete = models.SET_NULL)
+    timestamp = models.DateTimeField(auto_now_add=True, null=True) 
+
+    def __str__(self):
+	    return self.c_id
+
+    
+
+
+

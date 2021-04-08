@@ -11,5 +11,6 @@ urlpatterns = [
     path('about/', views.about,name="about"),
     path('search/<str:key>', views.search,name="search"),
     path(r'delete?p_id=[\d]+/', views.delete_post,name="delete_post"),
-    path('viewPost/',views.viewPost,name="viewPost")
+    path('<str:business>',views.viewProfile,name="viewProfile"),
+    path('<str:business>/products/<str:name>',views.viewPost,name="viewPost"),
 ]

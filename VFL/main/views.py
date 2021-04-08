@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 
@@ -11,34 +11,40 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 #Create your views here.
 from django.db import models
-from .models import Customer,Post
+from .models import Comment,Customer,Post
 from .forms import CreateUserForm
 from .forms import CreatePost,ProfileForm
 
 from. forms import states
+import json 
 
 def home(request):
 	posts = Post.objects.all()
-	if request.method == "POST":
-		category = request.POST['category-option']
-		avail = request.POST['availability-option']
+	locat = None
+	avail = None
+	category = None
+	if request.method == "POST" :
 		locat = request.POST['location']
-		print(category)
-		print(avail)
-		print(locat)
+		category = request.POST['category_option']
+		avail = request.POST['availability_option']
+		
+		# print(category)
+		# print(avail)
+		# print(locat)
+
 		qs1 = Post.objects.all()
 		qs2 = Post.objects.all()
 		qs3 = Post.objects.all()
 		if(category!='0'):
 			qs1 = qs1.filter(category = category)
-			print(qs1)
+			# print(qs1)
 		if(avail!='0'):
 			qs2 = qs2.filter(availability = avail)
-			print(qs2)
+			# print(qs2)
 		if(locat!='0'):
-			print(states[int(locat)-1])
+			# print(states[int(locat)-1])
 			qs3 = qs3.filter(location = states[int(locat)-1])
-			print(qs3)
+			# print(qs3)
 		qs4 = qs1.intersection(qs2,qs3)
 		print(qs4)
 		return render(request,'main/home.html',context={'posts':qs4})
@@ -180,8 +186,31 @@ def delete_post(request):
 	context ={'post_id':p}
 	return render(request,'main/delete.html',context)
 
-def viewPost(request):
 
-    context = {}
+def viewProfile(request,business):
+	try:
+		c = Customer.objects.get(business_name = business)
+	except Customer.DoesNotExist:
+		raise Http404("No such Business is currently registered with VFL.")
+	posts = Post.objects.filter(owner = c)
+	print(c)
+	print(posts)
+	context = {"c":c,"posts":posts}
+	return render(request,'main/viewProfile.html',context)
 
-    return render(request,'main/viewPost.html',context)
+
+def viewPost(request,business,name):
+	if request.method == "POST":
+		c_text = request.POST["c_text"]
+		p_id = Post.objects.get(p_id = request.POST["p_id"])
+		c_by = Customer.objects.get(id = request.user.id)
+		comment = Comment(text = c_text,p_id= p_id, c_by = c_by)
+		comment.save()
+		print("Commented!!!")
+	try:
+		p = Post.objects.filter(business_name=business,name=name)[0]
+	except Post.DoesNotExist:
+		raise Http404("No such Product is available with {}".format(business))
+	comments = Comment.objects.filter(p_id = p)
+	context = {"p":p,"comments":comments}
+	return render(request,'main/viewPost.html',context)
