@@ -48,13 +48,14 @@ def home(request):
 		qs4 = qs1.intersection(qs2,qs3).order_by("-p_id")
 		print(qs4)
 		return render(request,'main/home.html',context={'posts':qs4})
-	return render(request,'main/home.html',context={'posts':posts})
-
+	profile_filled = True
+	try:
+		Customer.objects.get(pk = request.user.id)
+	except Customer.DoesNotExist:
+		profile_filled = False
+	return render(request,'main/home.html',context={'posts':posts,'profile_filled':profile_filled})
 
 def search(request,key):
-	if request.method == "POST" :
-		key = request.POST['key']
-	
 	# print(key)
 	qs1 = Post.objects.filter(name__contains=key)
 	# print(qs1)

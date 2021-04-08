@@ -124,6 +124,14 @@
             </li>
         </ul>
     </div>
+    {% if not profile_filled %}
+    <div class="alert alert-dark alert-dismissible fade show" role="alert" style="text-align: center;">
+      <strong>Looks like you are new to VFL!</strong> <a href="{% url 'profile' %}" style=" color: black;">Complete your profile</a>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %}
     <br>
     <div id="slideshow">
         <div class="slide-wrapper">
@@ -336,32 +344,9 @@
             }
         };
 
-        function sendFilterRequest(clicked) {
-            var x = document.querySelector('[name=csrfmiddlewaretoken]').value;
-            console.log(x);
-            var formElement = document.createElement("form");
-            formElement.setAttribute("method", "post");
-            formElement.setAttribute("action", "{% url 'search' key='x' %}".replace('x', clicked));
-            formElement.setAttribute("target", "_parent");
-            var hiddenField1 = document.createElement("input");
-            hiddenField1.setAttribute("name", "location");
-            hiddenField1.setAttribute("value", "0");
-            formElement.appendChild(hiddenField1);
-            var hiddenField2 = document.createElement("input");
-            hiddenField2.setAttribute("name", "category_option");
-            hiddenField2.setAttribute("value", clicked);
-            formElement.appendChild(hiddenField2);
-            var hiddenField3 = document.createElement("input");
-            hiddenField3.setAttribute("name", "availability_option");
-            hiddenField3.setAttribute("value", "0");
-            formElement.appendChild(hiddenField3);
-            var csrf = document.createElement("input");
-            csrf.setAttribute("name", "csrfmiddlewaretoken");
-            csrf.setAttribute("value", x);
-            formElement.appendChild(csrf);
-            document.body.appendChild(formElement);
-            formElement.submit();
-        };
+        function sendFilterRequest(clicked){
+          document.location.href = ("{% url 'search' key='x' %}".replace('x', clicked));
+        }
 
         document.getElementById('search-placeholder').onkeypress=function(e){
             if(e.keyCode==13){
@@ -399,6 +384,8 @@
           1911090</span></div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
 
 </html>

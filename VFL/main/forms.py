@@ -66,7 +66,7 @@ class ProfileForm(forms.Form):
     phone = forms.CharField(label='Phone', required=True, max_length=10,
                             widget=forms.TextInput(attrs={'placeholder': ''}))
     email = forms.EmailField(
-        widget=forms.EmailInput(attrs={'placeholder': '', 'disabled': 'true', 'style': 'background-color: white'}))
+        widget=forms.EmailInput(attrs={'placeholder': '', 'style': 'background-color: white'}))
     business_name = forms.CharField(
         label='Business Name', max_length=100, widget=forms.TextInput(attrs={'placeholder': ' '}))
     state = forms.CharField(
