@@ -99,9 +99,9 @@
       <div id="comment-container">
         {% for c in comments %}
         <div class="comment-card">
-          <span><i class="far fa-user" style="font-size: 25px; color: white; margin-right: 10px;">{{c.c_by}}</i></span>
-          <span style="font-size: 20px;font-weight: bold;">{{c.text}}</span>
-          <span style="font-size: 19px;font-weight: 300;"> {{c.timestamp}}</span>
+          <span><i class="far fa-user" style="font-size: 25px; color: black; margin-right: 10px;"></i></span>
+          <span style="font-size: 20px;font-weight: bold;">{{c.c_by}}</span>
+          <span style="font-size: 19px;font-weight: 300;"> {{c.text}}{{c.timestamp}}</span>
         </div>
         {% endfor%}
       </div>

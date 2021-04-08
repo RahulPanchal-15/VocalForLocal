@@ -334,7 +334,10 @@
     padding: 10px;
     margin-bottom: 10px;
     border-bottom: solid 0.5px white;
+    background-color: white;
+    border-radius:20px ;
     transition: all 0.5s;
+    color: black;
   }
 
   .comment-card:hover{
