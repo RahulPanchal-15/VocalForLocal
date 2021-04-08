@@ -52,7 +52,7 @@
     <div class="menu-bar">
         <ul>
             <li>
-                <form method="POST" action='/home/'>
+                <form method="POST" action="{% url 'home' %}">
                     {% csrf_token %}
                     <i class="fa fa-list-alt" aria-hidden="true"
                         style="font-size: 18px; padding-right: 8px; color: white"></i>
@@ -156,7 +156,7 @@
                 <a href = "{% url 'viewPost' business=p.business_name name=p.name %}"><img src="{{p.imageURL}}" alt="Product"></a>
                 <div>
                     <div class="category-title">
-                        {{p.name}} <span class="date">{{p.date_created}}</span>
+                        {{p.name}} <span class="date" style = "float: right; font-weight: normal">{{p.date_created}}</span>
                         <p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
                                 style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a></p>
                     </div>
@@ -336,24 +336,12 @@
             }
         };
 
-        // function sendFilterRequest(clicked) {
-        //   var xhr = new XMLHttpRequest();
-        //   const token = document.querySelector('[name=csrfmiddlewaretoken]').value;
-        //   xhr.open('POST', "{% url 'home' %}", true);
-        //   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        //   xhr.setRequestHeader('X-CSRFToken',token)
-        //   xhr.onload = function () {
-        //     console.log(this);
-        //   };
-        //   xhr.send('location=0&category_option='+clicked+'&availability_option=0');
-        // }
-
         function sendFilterRequest(clicked) {
             var x = document.querySelector('[name=csrfmiddlewaretoken]').value;
             console.log(x);
             var formElement = document.createElement("form");
             formElement.setAttribute("method", "post");
-            formElement.setAttribute("action", "{% url 'home' %}");
+            formElement.setAttribute("action", "{% url 'search' key='x' %}".replace('x', clicked));
             formElement.setAttribute("target", "_parent");
             var hiddenField1 = document.createElement("input");
             hiddenField1.setAttribute("name", "location");
@@ -373,7 +361,13 @@
             formElement.appendChild(csrf);
             document.body.appendChild(formElement);
             formElement.submit();
-        }
+        };
+
+        document.getElementById('search-placeholder').onkeypress=function(e){
+            if(e.keyCode==13){
+                document.getElementById('srch').click();
+            }
+        };
 
     </script>
 

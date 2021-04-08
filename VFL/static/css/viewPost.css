@@ -371,7 +371,7 @@
   .comment-card{
     position: relative;
     width: 1000px;
-    height: 50px;
+    height: fit-content;
     margin-left:5%;
     padding: 10px;
     margin-bottom: 10px;

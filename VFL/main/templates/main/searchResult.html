@@ -125,8 +125,10 @@
   <div class="container">
     {% for p in products_qs %}
     <div class="container-card">
+      <a href = "{% url 'viewPost' business=p.business_name name=p.name %}">
       <div class="image" style="background-image: url({{p.imageURL}});">
       </div>
+     </a>
       <div class="card-info">
         <div class="prod-name"
           style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; font-size: 25px;">
