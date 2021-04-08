@@ -236,7 +236,7 @@
 
   #profile-container{
       position: fixed;
-      margin-top:150px;
+      margin-top:180px;
       width: 530px;
       height: 530px;
       border-right: solid 2px white;
@@ -263,20 +263,20 @@
       position:fixed;
       color: white;
       margin-left: 180px;
-      margin-top: 100px;
+      margin-top: 120px;
   }
 
   #heading1{
     position:fixed;
     color: white;
     margin-left: 900px;
-    margin-top: 100px;
+    margin-top: 120px;
   }
 
   #card{
       position: fixed;
       margin-left: 550px;
-      margin-top: 150px;
+      margin-top: 180px;
       width: 950px;
       height: 100%;
       background-color: none;
@@ -285,11 +285,11 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      overflow-y: scroll;
+      overflow-y: auto;
   }
 
   .card-individual{
-      position:relative;
+      position: relative;
       background-color: rgb(221, 219, 219) ;  /* #75151d  #8a3b41 rgb(43, 35, 58);rgb(236, 235, 235); #8a3b41*/
       margin-bottom: 15px;
       margin-left: 10px;
@@ -297,6 +297,10 @@
       height: 200px;
       border-radius: 7px;
       transition: all 0.5s;
+  }
+
+  .card-individual:last-child{
+    margin-bottom: 250px;
   }
 
   .card-individual:hover{

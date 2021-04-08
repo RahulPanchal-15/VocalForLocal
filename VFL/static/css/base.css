@@ -12,7 +12,7 @@
 
 .topnav {
   background: linear-gradient(311deg, #f4f493, #ffc871);
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   position: fixed;
   top: 0;
@@ -22,11 +22,10 @@
 
 .topnav a {
   float: left;
-  color: #f2f2f2;
-  text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+
 }
 
 .topnav a:hover {
@@ -36,6 +35,8 @@
 .topnav a.active {
   color: rgb(255, 102, 0);
   text-shadow: 2px 2px 7px #ebab4a;
+  transition: all 0.8s;
+  border-radius: 10px;
 }
 
 .topnav a.profile-pointer {
@@ -70,7 +71,23 @@
   float: left;
   margin-left: 200px;
   margin-top: 1px;
+}
 
+#srch{
+  transition: all 0.5s;
+}
+
+#srch:hover{
+  background-color: #ffc871;
+  transform: scale(1.1);
+}
+
+#srch:focus{
+  outline: none;
+}
+
+#srch:active{
+  transform: scale(0.95);
 }
 
 .search button {
@@ -94,6 +111,7 @@
   height: 100%;
   overflow: hidden;
   margin-top: -6px;
+  transition: all 0.8s;
 }
 
 .drop-down {
@@ -141,6 +159,27 @@
   display: block;
 }
 
+.dropdown-toggle::after{
+  display: none;
+}
+
+.dropdown-toggle{
+  transition: all 0.8s;
+}
+
+.dropdown-toggle:hover{
+  transform: scale(1.1);
+  border-radius: 20px;
+}
+
+.dropdown-item{
+  transition: all 0.5s;
+}
+
+.dropdown-item:hover{
+  background-color: #f4f493;
+}
+
 label{
   margin-right: 5px;
 }
@@ -150,6 +189,7 @@ label{
   border-radius: 5px;
   margin-right: 10px;
 }
+
 .menu-bar{
   overflow: hidden;
   position:static;
@@ -220,8 +260,8 @@ label{
   margin: 0 auto; 
   border-radius:10px ;
   box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
--webkit-box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
--moz-box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
+  -webkit-box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
+  -moz-box-shadow: 0px 0px 29px 2px rgba(0,0,0,0.48);
 } 
   
 .slide { 
@@ -281,20 +321,22 @@ label{
 }
 
 .roundedFixedBtn{
-height: 60px;
-line-height: 60px;  
-width: 60px;  
-font-size: 2em;
-font-weight: bold;
-border-radius: 50%;
-background-color: #ffc871;
-color: white;
-text-align: center;
-cursor: pointer;
+  height: 60px;
+  line-height: 60px;  
+  width: 60px;  
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #ffc871;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
 .roundedFixedBtn:hover{
-background-color: #f4f493;
+  transform:scale(1.1);
+  background-color: #f4f493;
 }
 
 
@@ -326,7 +368,7 @@ body {
 }
  
 ::-webkit-scrollbar-thumb {
-  background: #97bedd; 
+  background: #cacaca; 
   border-radius: 10px;
 }
 
@@ -432,12 +474,12 @@ body {
   margin: 30px;
   background-color: #97ddd4;
   border: none;
-  transition: all 0.5s;
+  transition: all 0.9s;
 }
 
 .icon1:hover{
   background-color: #97bedd ;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .card-container1 {
@@ -454,7 +496,7 @@ body {
 .cards1 {
   position: unset;
   min-width: 700px;
-  height: 350px;
+  height: 315px;
   border-radius: 16px;
    background-color: #8a3b41; /*#75151d  #8a3b41*/
   box-shadow: 0px 0px 29px -5px rgba(0,0,0,0.48);
@@ -462,7 +504,7 @@ body {
   -moz-box-shadow: 0px 0px 29px -5px rgba(0,0,0,0.48);
   flex-direction:row;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 5px 20px;
   transition: 0.4s;
   margin: 20px;
 }
