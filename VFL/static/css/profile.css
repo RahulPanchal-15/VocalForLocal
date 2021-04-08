@@ -118,12 +118,14 @@
     margin-left: 50px;
     width: 200px;
     height: 200%;
+    transition: all 0.5s;
     box-shadow: 17px 16px 38px -1px rgba(235,171,74,0.78);
     -webkit-box-shadow: 17px 16px 38px -1px rgba(235,171,74,0.78);
     -moz-box-shadow: 17px 16px 38px -1px rgba(235,171,74,0.78);
   }
   
   #profile-logo:hover{
+    transform: scale(1.05);
     box-shadow: 17px 16px 38px -1px rgba(244,244,147,0.78);
     -webkit-box-shadow: 17px 16px 38px -1px rgba(244,244,147,0.78);
     -moz-box-shadow: 17px 16px 38px -1px rgba(244,244,147,0.78);
