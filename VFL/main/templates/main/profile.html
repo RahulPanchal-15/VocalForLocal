@@ -248,10 +248,12 @@
       {% for p in user_posts %}
       <div class="cards">
         <header class="article-header">
+          <a href = "{%url  'viewPost' business=p.business_name name=p.name %}">
           <div style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; 
                border-right: solid rgb(216, 214, 214) 2px; background-image: url({{p.imageURL}}); 
                background-position: center; background-size: cover;">
           </div>
+          </a>
         </header>
         <div class="author" style="color: white; margin-left: 320px; width: 350px; height: 100%; margin-top: -290px; padding: 5px;" >
           <div class="profile" style="width: 100%; height: fit-content; margin-top: 10px; font-size: 17px; font-weight: bold;">
@@ -277,9 +279,6 @@
     {% endif %}
   </div>
   {% endif %}
-  <br>
-  <br>
-  <br>
   <br>
   <br>
   <div class="footer" style="padding-left: 10px;">

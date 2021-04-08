@@ -153,7 +153,7 @@
         {% for p in posts %}
         <div class="card">
             <header class="article-header">
-                <img src="{{p.imageURL}}" alt="Product">
+                <a href = "{% url 'viewPost' business=p.business_name name=p.name %}"><img src="{{p.imageURL}}" alt="Product"></a>
                 <div>
                     <div class="category-title">
                         {{p.name}} <span class="date">{{p.date_created}}</span>
@@ -240,7 +240,7 @@
         {% for p in posts %}
         <div class="card">
             <header class="article-header">
-                <img src="{{p.imageURL}}" alt="Product">
+                <a href = "{% url 'viewPost' business=p.business_name name=p.name%}"><img src="{{p.imageURL}}" alt="Product"></a>
                 <div>
                     <div class="category-title">
                         {{p.name}} <span class="date">{{p.date_created}}</span>
