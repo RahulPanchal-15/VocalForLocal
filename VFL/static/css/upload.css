@@ -25,7 +25,7 @@ body{
   
   .topnav {
     background: linear-gradient(311deg, #f4f493, #ffc871);
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     position: fixed;
     top: 0;
@@ -35,8 +35,6 @@ body{
   
   .topnav a {
     float: left;
-    color: #f2f2f2;
-    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
@@ -49,6 +47,8 @@ body{
   .topnav a.active {
     color: rgb(255, 102, 0);
     text-shadow: 2px 2px 7px #ebab4a;
+    transition: all 0.8s;
+    border-radius: 10px;
   }
   
   .topnav a.profile-pointer {
@@ -77,6 +77,23 @@ body{
   
   .search input[type="text"]:hover {
     background-color: #f2f2f2;
+  }
+
+  #srch{
+    transition: all 0.5s;
+  }
+  
+  #srch:hover{
+    background-color: #ffc871;
+    transform: scale(1.1);
+  }
+  
+  #srch:focus{
+    outline: none;
+  }
+  
+  #srch:active{
+    transform: scale(0.95);
   }
   
   .search {
@@ -151,6 +168,27 @@ body{
   
   .drop-down:hover .drop-down-content {
     display: block;
+  }
+
+  .dropdown-toggle::after{
+    display: none;
+  }
+  
+  .dropdown-toggle{
+    transition: all 0.8s;
+  }
+  
+  .dropdown-toggle:hover{
+    transform: scale(1.1);
+    border-radius: 20px;
+  }
+  
+  .dropdown-item{
+    transition: all 0.5s;
+  }
+  
+  .dropdown-item:hover{
+    background-color: #f4f493;
   }
   
   .menu-bar{
@@ -251,11 +289,11 @@ body{
     width: 900px;
     height: 550px;
     background-color: #faea8e;
-
     border-radius: 5px;
     overflow: hidden;
-    position: relative;
-    margin: 1.5rem;
+    position: absolute;
+    margin-left: -448px;
+    margin-top: -250px;
     box-shadow: 7px 0px 23px -7px rgba(84,84,84,0.62);
     -webkit-box-shadow: 7px 0px 23px -7px rgba(84,84,84,0.62);
     -moz-box-shadow: 7px 0px 23px -7px rgba(84,84,84,0.62);
@@ -329,21 +367,27 @@ body{
     text-shadow: 6px 3px 6px rgba(255, 104, 0, 0.65);
   }
   
-  .card .general .edit-form .upload-btn{
+.upload-btn{
     width: 100px;
-    height: 50px;
-    background: linear-gradient(159deg, #33ccff, #b38ed1);
+    height: 40px;
+    background: linear-gradient(to right, #43e97b, #38f9d7);
     color: white ;
-    border-radius: 5px;
+    border-radius: 30px;
     border: none;
+    transition: all 0.5s;
   }
   
-  .card .general .edit-form .upload-btn:hover{
-    border: #fff solid;
-    border-width: 2px;
-    box-shadow: 0px 0px 137px 31px rgba(255,200,113,1);
-    -webkit-box-shadow: 0px 0px 137px 31px rgba(255,200,113,1);
-    -moz-box-shadow: 0px 0px 137px 31px rgba(255,200,113,1);
+.upload-btn:hover{
+    transform: scale(1.1);
+    border: #fff 2px solid;
+  }
+
+  .upload-btn:focus{
+    outline: none;
+  }
+
+  .upload-btn:active{
+    transform: scale(0.95);
   }
   
   .asteriskField{
@@ -358,13 +402,40 @@ body{
     box-shadow: 17px 16px 38px -1px rgba(235,171,74,0.78);
     -webkit-box-shadow: 17px 16px 38px -1px rgba(235,171,74,0.78);
     -moz-box-shadow: 17px 16px 38px -1px rgba(235,171,74,0.78);
+    transition: all 0.5s;
   }
 
   #profile-logo:hover{
+    transform: scale(1.05);
     box-shadow: 17px 16px 38px -1px rgba(236, 192, 96, 0.986);
     -webkit-box-shadow: 17px 16px 38px -1px rgba(2236, 192, 96, 0.986);
     -moz-box-shadow: 17px 16px 38px -1px rgba(236, 192, 96, 0.986);
   }
+  
+  #reset{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 30px; 
+    background:linear-gradient(159deg, #33ccff, #b38ed1);
+    color: white;
+    transition: all 0.5s;
+  }
+
+  #reset:hover{
+    transform: scale(1.1);
+    border: white 2px solid;
+  }
+
+  #reset:active{
+    transform: scale(0.95);
+  }
+
+  #reset:focus{
+    outline: none;
+  }
+
+
   
   .controls input{
     border: rgb(236, 192, 96);

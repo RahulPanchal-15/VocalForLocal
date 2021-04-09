@@ -13,7 +13,6 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
 
-
 </head>
 
 <body style="background-color: rgb(53, 65, 82);">
@@ -124,7 +123,7 @@
             </li>
         </ul>
     </div>
-    {% if not profile_filled %}
+    {% if not profile_filled and user.is_authenticated %}
     <div class="alert alert-dark alert-dismissible fade show" role="alert" style="text-align: center;">
       <strong>Looks like you are new to VFL!</strong> <a href="{% url 'profile' %}" style=" color: black;">Complete your profile</a>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -165,8 +164,9 @@
                 <div>
                     <div class="category-title">
                         {{p.name}} <span class="date" style = "float: right; font-weight: normal">{{p.date_created}}</span>
-                        <p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
-                                style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a></p>
+                        <span><p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
+                            style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a><span class="price" style = "float: right; font-weight: bold;margin-right: 20px;font-size: 20px;">&#8377;{{p.price}}</span></p></span>
+                            
                     </div>
                 </div>
             </header>
@@ -251,9 +251,10 @@
                 <a href = "{% url 'viewPost' business=p.business_name name=p.name%}"><img src="{{p.imageURL}}" alt="Product"></a>
                 <div>
                     <div class="category-title">
-                        {{p.name}} <span class="date">{{p.date_created}}</span>
-                        <p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
-                                style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a></p>
+                        {{p.name}} <span class="date" style = "float: right; font-weight: normal">{{p.date_created}}</span>
+                        <span><p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
+                            style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a><span class="price" style = "float: right; font-weight: bold;margin-right: 20px;font-size: 20px;">&#8377;{{p.price}}</span></p></span>
+                            
                     </div>
                 </div>
             </header>
@@ -279,9 +280,10 @@
                 <img src="{{p.imageURL}}" alt="Product">
                 <div>
                     <div class="category-title">
-                        {{p.name}} <span class="date">{{p.date_created}}</span>
-                        <p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
-                                style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a></p>
+                        {{p.name}} <span class="date" style = "float: right; font-weight: normal">{{p.date_created}}</span>
+                        <span><p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
+                            style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a><span class="price" style = "float: right; font-weight: bold;margin-right: 20px;font-size: 20px;">&#8377;{{p.price}}</span></p></span>
+                            
                     </div>
                 </div>
             </header>
@@ -318,6 +320,7 @@
                         {{p.date_created}}</p>
                     <p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
                             style="color: white; text-decoration: none; font-weight: normal;">{{p.business_name}}</a>
+                            <span class="price" style = "float: right; font-weight: bold;margin-right: 20px;font-size: 20px;">&#8377;{{p.price}}</span>
                     </p>
                 </div>
                 <hr style="width: 90%; background-color: whitesmoke; margin: 5px 0px;">

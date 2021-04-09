@@ -1,8 +1,10 @@
+from django.core.exceptions import ValidationError
 from django.db.models.enums import Choices
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from django.forms.widgets import TextInput
 
 
 states = ["Andhra Pradesh", "Arunachal Pradesh", "Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana",
@@ -48,6 +50,11 @@ class CreateUserForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
+# def validate_positive(value):
+#     try:
+#     if value <= 0:
+#         raise ValidationError("Only Positive Numbers Accepted!")
+
 class CreatePost(forms.Form):
     name = forms.CharField(label="Name", max_length=200)
     category = forms.CharField(
@@ -58,6 +65,7 @@ class CreatePost(forms.Form):
         attrs={'id': 'image-upload', 'onchange': 'readURL(this);','style': 'border: none; background: none; color:white '}))
     availability = forms.CharField(
         label="Shipping...", widget=forms.Select(choices=shipping))
+    price = forms.IntegerField(label="Price &#8377;", required=True,min_value=1,initial=1)
 
 
 class ProfileForm(forms.Form):
@@ -65,8 +73,7 @@ class ProfileForm(forms.Form):
                              widget=forms.TextInput(attrs={'placeholder': ''}))
     phone = forms.CharField(label='Phone', required=True, max_length=10,
                             widget=forms.TextInput(attrs={'placeholder': ''}))
-    email = forms.EmailField(
-        widget=forms.EmailInput(attrs={'placeholder': '', 'style': 'background-color: white'}))
+    email = forms.EmailField(label='Business Email',widget=forms.EmailInput(attrs={'placeholder': '', 'style': 'background-color: white'}))
     business_name = forms.CharField(
         label='Business Name', max_length=100, widget=forms.TextInput(attrs={'placeholder': ' '}))
     state = forms.CharField(

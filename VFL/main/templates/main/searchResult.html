@@ -123,6 +123,9 @@
   <h3 style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif;margin-left: 70px;">Search Results</h3>
   <hr style="height: 0.5px; background-color: white;width: 95%;">
   <div class="container">
+    {% if not products_qs %}
+    <img src="{% static 'images/N.png' %}" alt="no result" style="margin-left: 330px; margin-top: 80px;">
+    {% else %}
     {% for p in products_qs %}
     <div class="container-card">
       <a href = "{% url 'viewPost' business=p.business_name name=p.name %}">
@@ -134,7 +137,7 @@
           style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; font-size: 25px;">
           <p style="margin-bottom: 3px;">{{p.name}} <span style="font-size: 15px; font-weight: normal; color: rgb(199, 199, 199);">{{p.date_created}}</span></p>
           <p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
-            style="color: white; text-decoration: none; font-weight: normal; font-size: 20px;">{{p.business_name}}</a></p>
+            style="color: white; text-decoration: none; font-weight: normal; font-size: 20px;">{{p.business_name}}</a><span class="price" style = "float: right; font-weight: bold;margin-right: 100px;font-size: 20px;">&#8377;{{p.price}}</span></p>
         </div>
         <hr style="background-color: rgb(255, 255, 255); width: 90%; height: 1px; margin: 2px 0px 5px 0px;">
         <div class="description">
@@ -143,6 +146,7 @@
       </div>
     </div>
     {% endfor %}
+    {% endif %}
   </div>
   <br>
   <br>
@@ -165,6 +169,12 @@
             document.location.href = (a);
         }
     };
+
+    document.getElementById('search-placeholder').onkeypress=function(e){
+            if(e.keyCode==13){
+                document.getElementById('srch').click();
+            }
+        };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
