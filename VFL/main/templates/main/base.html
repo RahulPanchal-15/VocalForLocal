@@ -336,31 +336,9 @@
             }
         };
 
-        function sendFilterRequest(clicked) {
-            var x = document.querySelector('[name=csrfmiddlewaretoken]').value;
-            console.log(x);
-            var formElement = document.createElement("form");
-            formElement.setAttribute("method", "post");
-            formElement.setAttribute("action", "{% url 'search' key='x' %}".replace('x', clicked));
-            formElement.setAttribute("target", "_parent");
-            var hiddenField1 = document.createElement("input");
-            hiddenField1.setAttribute("name", "location");
-            hiddenField1.setAttribute("value", "0");
-            formElement.appendChild(hiddenField1);
-            var hiddenField2 = document.createElement("input");
-            hiddenField2.setAttribute("name", "category_option");
-            hiddenField2.setAttribute("value", clicked);
-            formElement.appendChild(hiddenField2);
-            var hiddenField3 = document.createElement("input");
-            hiddenField3.setAttribute("name", "availability_option");
-            hiddenField3.setAttribute("value", "0");
-            formElement.appendChild(hiddenField3);
-            var csrf = document.createElement("input");
-            csrf.setAttribute("name", "csrfmiddlewaretoken");
-            csrf.setAttribute("value", x);
-            formElement.appendChild(csrf);
-            document.body.appendChild(formElement);
-            formElement.submit();
+        function sendFilterRequest(clicked){
+            const url = "{% url 'search' key='x' %}".replace('x', clicked);
+            document.location.href = (url);
         };
 
         document.getElementById('search-placeholder').onkeypress=function(e){
