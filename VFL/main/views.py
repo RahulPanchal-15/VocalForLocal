@@ -19,7 +19,7 @@ from. forms import states
 import json 
 
 def home(request):
-	posts = Post.objects.all()
+	posts = Post.objects.all().order_by("-p_id")
 	locat = None
 	avail = None
 	category = None
@@ -45,10 +45,15 @@ def home(request):
 			# print(states[int(locat)-1])
 			qs3 = qs3.filter(location = states[int(locat)-1])
 			# print(qs3)
-		qs4 = qs1.intersection(qs2,qs3)
+		qs4 = qs1.intersection(qs2,qs3).order_by("-p_id")
 		print(qs4)
 		return render(request,'main/home.html',context={'posts':qs4})
-	return render(request,'main/home.html',context={'posts':posts})
+	profile_filled = True
+	try:
+		exist = Customer.objects.get(pk = request.user.id)
+	except Customer.DoesNotExist:
+		profile_filled = False
+	return render(request,'main/home.html',context={'posts':posts,'profile_filled':profile_filled})
 
 
 def search(request,key):
@@ -57,7 +62,9 @@ def search(request,key):
 	# print(qs1)
 	qs2 = Post.objects.filter(description__contains=key)
 	# print(qs2)
-	products_qs = qs1.union(qs2)
+	qs3 = Post.objects.filter(category = key)
+
+	products_qs = qs1.union(qs2,qs3)
 	print(products_qs)
 
 	customer_qs = Customer.objects.filter(business_name__contains=key)
@@ -65,9 +72,8 @@ def search(request,key):
 
 	context = {
 		"products_qs":products_qs,
-		"customer_qs":customer_qs
+		"customer_qs":customer_qs,
 	}
-
 	return render(request,'main/searchResult.html',context)
 
 
@@ -211,6 +217,6 @@ def viewPost(request,business,name):
 		p = Post.objects.filter(business_name=business,name=name)[0]
 	except Post.DoesNotExist:
 		raise Http404("No such Product is available with {}".format(business))
-	comments = Comment.objects.filter(p_id = p)
+	comments = Comment.objects.filter(p_id = p).order_by('-c_id')
 	context = {"p":p,"comments":comments}
 	return render(request,'main/viewPost.html',context)

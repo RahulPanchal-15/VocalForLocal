@@ -40,8 +40,7 @@
     </ul>
     {% else %}
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="border-radius: 10px;margin-left: 160px;">
-      <li><a class="dropdown-item" href="{% url 'home' %}"><i class="fas fa-home" style="font-size: 17px; margin-right: 5px;"></i>Home</a></li>
-      <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt" style="font-size: 17px; margin-right: 5px;"></i>Logout</a></li>
+      <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt" style="font-size: 17px; margin-right: 5px;"></i>SignIn</a></li>
     </ul>
     {% endif %}
   </div>
@@ -53,7 +52,7 @@
           {% csrf_token %}
           <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 18px; padding-right: 8px; color: white"></i>
           <select name="location" class="custom-select" style="width: 200px; height: 38px;">
-            <option selected value="0">Location</option>
+          <option selected value="0">Location</option>
             <option value="1">Andhra Pradesh</option>
             <option value="2">Arunachal Pradesh</option>
             <option value="3">Assam</option>
@@ -126,8 +125,10 @@
   <div class="container">
     {% for p in products_qs %}
     <div class="container-card">
+      <a href = "{% url 'viewPost' business=p.business_name name=p.name %}">
       <div class="image" style="background-image: url({{p.imageURL}});">
       </div>
+     </a>
       <div class="card-info">
         <div class="prod-name"
           style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; font-size: 25px;">
