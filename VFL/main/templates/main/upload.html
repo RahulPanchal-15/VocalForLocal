@@ -31,7 +31,7 @@
     <div class="search">
       <form action="#">
         <input type="text" placeholder=" Search..." name="search" />
-        <button>
+        <button  id="srch">
           <i class="fa fa-search" style="font-size: 18px"> </i>
         </button>
       </form>
@@ -41,24 +41,13 @@
       {% endif %}
     </span>
     {% if user.is_authenticated %}
-    <div class="drop-down">
-      <button class="dropbtn">
-        <i class="far fa-user-circle" style="font-size: 40px;"> </i>
-      </button>
-      <div class="drop-down-content">
-        <a href="{% url 'profile' %}">Profile</a>
-        <a href="{% url 'logout' %}">Logout</a>
-      </div>
-    </div>
-    {% else %}
-    <div class="drop-down">
-      <button class="dropbtn">
-        <i class="far fa-user-circle" style="font-size: 40px"></i>
-      </button>
-      <div class="drop-down-content">
-        <a href="{% url 'login' %}">SignIn</a>
-      </div>
-    </div>
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"       style="margin-left: 160px;">
+      <i class="far fa-user-circle" style="color:white; font-size: 45px;"></i>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="border-radius: 10px;margin-left: 160px;">
+      <li><a class="dropdown-item" href="{% url 'home' %}"><i class="fas fa-home" style="font-size: 17px; margin-right: 5px;"></i>Home</a></li>
+      <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt" style="font-size: 17px; margin-right: 5px;"></i>Logout</a></li>
+    </ul>
     {% endif %}
   </div>
   <div class="menu-bar">
@@ -135,6 +124,14 @@
       </li>
     </ul>
   </div>
+  {% if upload_successful %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert" style="text-align: center; position: absolute; z-index: 3; width: 100%;">
+    <strong>Post Uploaded Successfully!</strong> <a href="{% url 'profile' %}" style="color: rgb(70, 117, 101);">Check your post here.</a> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %}
   <br>
   <div id="slideshow">
     <div class="slide-wrapper">
@@ -154,7 +151,6 @@
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-
           </div>
           <div class="icon">
             <img id="profile-logo" src = "{% static 'images/Capture.PNG' %}" alt="profile-logo">
@@ -183,18 +179,25 @@
             </div>
             <div class="form-row">
               <div class="form-group col-lg-5 mb-1">
+                {{form.price|as_crispy_field}}
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-5 mb-1">
                 {{form.description|as_crispy_field}}
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-lg-5 mb-4">
-                {{ form.image|as_crispy_field }}
+                 {{ form.image|as_crispy_field }}
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-lg-5 mb-4">
-                <button class="upload-btn" type="submit" , name='upload'
-                  style="font-weight:bold; border-radius: 30px;">Upload</button>
+              <div class="form-group col-sm-3 mb-4">
+                <button class="upload-btn" type="submit" , name='upload'>Upload</button> 
+              </div>
+              <div class="form-group col-sm-3 mb-4">
+                <button id="reset" type="reset" onclick='remove_img()'>Reset</button>
               </div>
             </div>
           </form>
@@ -213,6 +216,10 @@
         reader.readAsDataURL(input.files[0]);
       }
     }
+
+    function remove_img(){
+      document.getElementById('profile-logo').setAttribute('src',"{% static 'x' %}".replace('x','images/Capture.PNG'))
+    }
   </script>
   <div class="footer" style="padding-left: 10px; margin-top: 700px;">
     <hr style="width: 95%;height: 0.5px; background-color: white;"/>
@@ -220,6 +227,8 @@
       <span style="margin:0px 5px;"><i class="fab fa-instagram"></i></span><span style="margin:0px 5px;"><i class="fab fa-twitter"></i></span> 
       <div><span style="font-size: 18px;">Aditya Malwade: 1911091 | Rahul Panchal: 1911097 | Aayush Malde: 1911090</span></div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

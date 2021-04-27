@@ -30,6 +30,7 @@ class Post(models.Model):
     availability = models.CharField(max_length=20, null=True)
     location = models.CharField(max_length=50, null=True)
     business_name = models.CharField(max_length=50,null=True)
+    price = models.IntegerField(null=True)
    
 
     def __str__(self):

@@ -99,13 +99,15 @@
             {% for p in posts %}
             <div class="card-individual">
                 <div id="card-info">
-                    <img src="{{p.imageURL}}" alt="" style="width: 250px;height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat; border-bottom-left-radius: 5px; border-top-left-radius: 5px; ">
+                  <a href="{% url 'viewPost' business=p.business_name name=p.name %}" style="text-decoration: none;"><img src="{{p.imageURL}}" alt="" style="width: 250px;height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat; border-bottom-left-radius: 5px; border-top-left-radius: 5px; ">
+                  </a>
                 </div>
                 <div id="product-info">
                     <h3 style="margin-left: 5px;">
-                        {{p.name}} <span style="font-size:0.6em; color: rgb(104, 102, 102);">{{p.date_created}}</span>
+                        {{p.name}}<span class="price" style = "float: right; font-weight: bold;margin-right: 50px;">&#8377;{{p.price}}</span>
+                        <p style="font-size:0.6em; color: rgb(104, 102, 102); margin: 5px;">{{p.date_created}}</p>
                     </h3>
-                    <hr style="width:95%; margin-bottom: 4px; background-color: rgb(190, 189, 189);">
+                    <hr style="width:95%; margin: 4px 4px; background-color: rgb(190, 189, 189);">
                     <h4 style="margin-left: 5px;">
                         Description:
                         <h5 style="display: flex; flex-direction:row; flex-wrap: wrap; overflow: hidden; margin-left: 5px;">

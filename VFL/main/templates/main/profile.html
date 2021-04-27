@@ -184,6 +184,7 @@
               </div>
 
               <button class="save-btn" type="submit" , name='save' style="border-radius: 30px;">Save</button>
+              <button class="save-btn" type="reset" , name='save' style="border-radius: 30px; margin-left: 20px;background:linear-gradient(159deg, #33ccff, #b38ed1) ;" onclick='document.getElementById("edt-frm").style.width = "300px";'>Reset</button>
             </form>
           </div>
         </div>
@@ -194,7 +195,7 @@
         <p>
           <ul style="list-style-type: none; font-size: 17px; color: #354152; font-weight: 600; line-height: 50px; margin-left: -10px; background-color: rgb(230, 230, 230); border-radius: 10px;">
             <li><span style="font-size: 20px; font-weight: bold;">Name:  </span>{{user_profile.name}}</li>
-            <li><span style="font-size: 20px; font-weight: bold;">Email: </span>{{user_profile.email}}</li>
+            <li><span style="font-size: 20px; font-weight: bold;">Business Email: </span>{{user_profile.email}}</li>
             <li><span style="font-size: 20px; font-weight: bold;">Phone:  </span>{{user_profile.phone}}</li>
             <li><span style="font-size: 20px; font-weight: bold;">Business name:  </span>{{user_profile.business_name}}</li>
             <li><span style="font-size: 20px; font-weight: bold;">State:  </span>{{user_profile.state}}</li>
@@ -259,7 +260,7 @@
         <div class="author" style="color: white; margin-left: 320px; width: 350px; height: 100%; margin-top: -290px; padding: 5px;" >
           <div class="profile" style="width: 100%; height: fit-content; margin-top: 10px; font-size: 17px; font-weight: bold;">
             <span style="font-size: 25px;">{{p.name}}</span> 
-            <p style="font-weight: normal; color: #c4c0c0;">{{p.date_created}}</p></div>
+            <p style="font-weight: normal; color: #c4c0c0;">{{p.date_created}}<span class="price" style = "float: right; font-weight: bold;margin-right: 20px;font-size: 20px;color: white;">&#8377;{{p.price}}</span></p></div>
           <hr style="width: 80%; background-color: whitesmoke; margin: 5px 0px;">
           <div class="info">
             <div class="caption" style="font-size: 17px; font-weight: bold;">Description: </div>

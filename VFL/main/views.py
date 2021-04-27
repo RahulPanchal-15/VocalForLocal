@@ -50,11 +50,18 @@ def home(request):
 		return render(request,'main/home.html',context={'posts':qs4})
 	profile_filled = True
 	try:
+<<<<<<< HEAD
 		exist = Customer.objects.get(pk = request.user.id)
 	except Customer.DoesNotExist:
 		profile_filled = False
 	return render(request,'main/home.html',context={'posts':posts,'profile_filled':profile_filled})
 
+=======
+		Customer.objects.get(pk = request.user.id)
+	except Customer.DoesNotExist:
+		profile_filled = False
+	return render(request,'main/home.html',context={'posts':posts,'profile_filled':profile_filled})
+>>>>>>> 289c51a6631f6f20cc10df2557e515123e185176
 
 def search(request,key):
 	# print(key)
@@ -129,6 +136,7 @@ def profile(request):
 
 
 def upload(request):
+	upload_successful = False
 	if request.method == "POST":
 		form = CreatePost(request.POST or None, request.FILES or None)
 		if form.is_valid():
@@ -136,16 +144,18 @@ def upload(request):
 			note = form.cleaned_data["description"]
 			ph = form.cleaned_data["image"]
 			ct = form.cleaned_data["category"]
+			pr = form.cleaned_data["price"]
 			try:
 				u = Customer.objects.get(id=request.user.id)
 			except Customer.DoesNotExist:
 				form = ProfileForm
 				return render(request,'main/profile.html',context={'form':form})
 			avail = form.cleaned_data["availability"]
-			p = Post(name=na,description=note,owner=u,business_name = u.business_name,date_created=datetime.now().strftime("%H:%M:%S"),category=ct,photo = ph,availability = avail,location = u.state)
+			p = Post(name=na,description=note,owner=u,business_name = u.business_name,date_created=datetime.now().strftime("%H:%M:%S"),category=ct,photo = ph,availability = avail,location = u.state, price = pr)
 			p.save()
+			upload_successful = True
 	form = CreatePost()
-	return render(request,'main/upload.html',context={'form':form})
+	return render(request,'main/upload.html',context={'form':form, 'upload_successful': upload_successful})
 
 def registerPage(request):
 	if request.user.is_authenticated:
