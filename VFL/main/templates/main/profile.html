@@ -264,7 +264,7 @@
           <hr style="width: 80%; background-color: whitesmoke; margin: 5px 0px;">
           <div class="info">
             <div class="caption" style="font-size: 17px; font-weight: bold;">Description: </div>
-            <div class="name" style="overflow-x: hidden; display: flex; flex-direction: row;flex-wrap: wrap; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            <div class="name" style="width: 340px; height: 140px; overflow-y: scroll;">
               {{p.description}}
             </div>
             <button id='delete-btn' type="submit" name="{{p.p_id}}">
@@ -283,12 +283,13 @@
   {% endif %}
   <br>
   <br>
+  <hr style="width:100%; height: 0.5px; background-color: white;"/>
   <div class="footer" style="padding-left: 10px;">
-    <hr style="width:100%; height: 0.5px; background-color: white;"/>
     <h3 style="color: white;">Contact us at: <span style="margin:0px 5px;"><i class="fab fa-facebook"></i></span> 
       <span style="margin:0px 5px;"><i class="fab fa-instagram"></i></span><span style="margin:0px 5px;"><i class="fab fa-twitter"></i></span> 
-      <div><span style="font-size: 18px;">Aditya Malwade: 1911091 | Rahul Panchal: 1911097 | Aayush Malde: 1911090</span></div>
+      <div><span style="font-size: 18px;">Aayush Malde: 1911090 |Aditya Malwade: 1911091 | Rahul Panchal: 1911097 </span></div>
   </div>
+  
   <script>
     function edit(){
          document.getElementById("edt-frm").style.width="100%";

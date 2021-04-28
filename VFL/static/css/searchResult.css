@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro&display=swap');
+
+
 body {
+  font-family: 'Roboto',sans-serif;
   overflow-y: scroll; 
 }
 
@@ -14,7 +19,6 @@ body{
 .hello-msg {
     position: relative;
     float: right;
-    font: verdana;
     font-weight: 500;
     font-size: 25px;
     color: #fff;
@@ -207,7 +211,7 @@ body{
     display : inline-flex;
     list-style: none;
     margin-top: unset;
-    margin-bottom: -5px;
+    margin-bottom: unset;
   }
   
   .menu-bar ul li{
@@ -348,12 +352,15 @@ body{
   }
 
   .description{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     color: #ffffff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Fredoka', sans-serif;
     font-size: 15px;
     width: 700px;
-    height: 100px;
+    height: 122px;
+    overflow-y: scroll;
   }
+
+
+.description::-webkit-scrollbar {
+  display: none;
+}

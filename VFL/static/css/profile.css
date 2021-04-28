@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro&display=swap');
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
 .hello-msg {
     position: relative;
     float: right;
@@ -549,7 +556,7 @@ input:hover{
 #delete-btn{
   width: 80px;
   position: fixed;
-  margin-top: 40px; 
+  margin-top: 3px; 
   margin-left: 260px;
   background: none; 
   border: solid white 2px; 
@@ -603,4 +610,8 @@ input:hover{
 
 #edt-btn:active{
   transform: scale(0.95);
+}
+
+.footer{
+  font-family: 'Spartan', serif;
 }
