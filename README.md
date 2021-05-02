@@ -1,2 +1,1 @@
-# VocalForLocal
-SY MiniProject
+
