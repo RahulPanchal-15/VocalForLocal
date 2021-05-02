@@ -285,7 +285,7 @@ label{
 } 
   
 .slide:nth-child(1) { 
-  background: green; 
+  background: white; 
 } 
 
 .slide:nth-child(2) { 
