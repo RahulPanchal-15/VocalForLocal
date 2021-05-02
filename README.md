@@ -1,5 +1,6 @@
 # VocalForLocal - SY MiniProject
 ### Group Members: 
+#### SY Comps B2 batch
 * Aayush Malde (1911090)
 * Aditya Malwade (1911091)
 * Rahul Panchal (1911097)
@@ -25,6 +26,7 @@ To start up with Django web development install Django - ```   python -m pip ins
 
 # Installation
 * To start with with an Django project open terminal and type command - ``` django-admin startproject <Project Name> ```
+
 ```
 <Project Name>/
     manage.py
@@ -35,4 +37,14 @@ To start up with Django web development install Django - ```   python -m pip ins
         asgi.py
         wsgi.py
 ```
+
 * Create **static** folder for separating css files and maintaining images for the website
+* Create **template/main** folder for housing html files
+
+
+![Capture](https://user-images.githubusercontent.com/69159108/116813110-cfbe3200-ab6f-11eb-95c3-e5826c8b6284.PNG)
+
+# ScreenShots
+
+
+
