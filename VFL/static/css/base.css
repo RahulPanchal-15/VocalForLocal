@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
 .hello-msg {
   position: relative;
   float: right;
-  font: verdana;
   font-weight: 500;
   font-size: 25px;
   color: #fff;
@@ -277,7 +285,7 @@ label{
 } 
   
 .slide:nth-child(1) { 
-  background: green; 
+  background: white; 
 } 
 
 .slide:nth-child(2) { 
@@ -412,7 +420,7 @@ body {
 .card .category-title {
   font-size: 16px;
   color: rgb(255, 255, 255);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   font-weight: 900;
 }
 
@@ -430,13 +438,11 @@ body {
   width: 342px; 
   margin-left:3px;
   margin-bottom: 3px;
-  /* border: 2px solid #ffffff ; */
 }
 
 .author .info .caption {
-  display: flex;
-  flex-wrap: wrap;
   color: #ffffff;
+  cursor: default;
 }
 
 .author .profile{
@@ -465,6 +471,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  font-family: 'Fredoka One', cursive;
 }
 
 .icon1{
@@ -475,6 +482,7 @@ body {
   background-color: #97ddd4;
   border: none;
   transition: all 0.9s;
+  font-family: 'Fredoka One', cursive;
 }
 
 .icon1:hover{
@@ -554,4 +562,8 @@ body {
 
 .cards1:hover~.card1{
   transform: translateX(10px);
+}
+
+.footer{
+  font-family: 'Spartan', serif;
 }

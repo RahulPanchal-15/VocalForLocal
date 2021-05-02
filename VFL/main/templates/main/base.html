@@ -12,6 +12,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap" rel="stylesheet">  
 
 </head>
 
@@ -124,7 +128,7 @@
         </ul>
     </div>
     {% if not profile_filled and user.is_authenticated %}
-    <div class="alert alert-dark alert-dismissible fade show" role="alert" style="text-align: center;">
+    <div class="alert alert-dark alert-dismissible fade show" role="alert" style="text-align: center; position: absolute;width: 100%;">
       <strong>Looks like you are new to VFL!</strong> <a href="{% url 'profile' %}" style=" color: black;">Complete your profile</a>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -155,18 +159,16 @@
     </a>
     {% endif %}
     <hr style="width: 80%; height: 0.5px; background-color: white;">
-    <h3 style="font: verdana; margin-left: 50px; color: white;">Products Near You</h3>
+    <h3 style="margin-left: 50px; color: white; font-size: 40px;">Products Near You</h3>
     <div class="card-container">
         {% for p in posts %}
         <div class="card">
             <header class="article-header">
                 <a href = "{% url 'viewPost' business=p.business_name name=p.name %}"><img src="{{p.imageURL}}" alt="Product"></a>
                 <div>
-                    <div class="category-title">
-                        {{p.name}} <span class="date" style = "float: right; font-weight: normal">{{p.date_created}}</span>
-                        <span><p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
-                            style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a><span class="price" style = "float: right; font-weight: bold;margin-right: 20px;font-size: 20px;">&#8377;{{p.price}}</span></p></span>
-                            
+                    <div class="category-title"> <span style="font-family: 'Gothic A1', sans-serif;">{{p.name}}</span>
+                        <span class="date" style = "float: right; font-weight: normal">{{p.date_created}}</span>
+                        <span><p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}" style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a><span class="price" style = "float: right; font-weight: bold;margin-right: 20px;font-size: 20px;">&#8377;{{p.price}}</span></p></span>
                     </div>
                 </div>
             </header>
@@ -175,7 +177,7 @@
                 <div class="profile">Description</div>
                 <div class="info">
                     <div class="caption">
-                        <p style="width: 330px;">{{p.description}}</p>
+                        <p style="width: 330px; overflow-y: scroll; height: 75px;">{{p.description}}</p>
                     </div>
                 </div>
             </div>
@@ -186,64 +188,57 @@
     <div class="shortcut-filter">
         <button class="icon1" id="Accessories" onclick="sendFilterRequest(this.id)">
             <i class="fas fa-shopping-bag" style="font-size: 40px; color:white">
-                <div
-                    style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; text-transform: uppercase;">
-                    Accessories</div>
+                <div style="font-size: 10px; margin-top: 15px; text-transform: uppercase;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Accessories</div>
             </i>
         </button>
         <button class="icon1" id="Art" onclick="sendFilterRequest(this.id)">
             <i class="fas fa-palette" aria-hidden="true" style="font-size: 40px ;color: white;">
-                <div style="font-size: 13px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">ART
-                </div>
+                <div style="font-size: 13px; margin-top: 15px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">ART</div>
             </i>
         </button>
         <button class="icon1" id="Clothing" onclick="sendFilterRequest(this.id)">
             <i class="fas fa-tshirt" style="font-size: 35px; color: white;">
-                <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
-                    CLOTHING</div>
+                <div style="font-size: 10px; margin-top: 15px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">CLOTHING</div>
             </i>
         </button>
         <button class="icon1" id="Electronics" onclick="sendFilterRequest(this.id)">
             <i class="fa fa-microchip" aria-hidden="true" style="color: white; font-size: 2em;">
-                <div style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
-                    ELECTRONICS
-                </div>
+                <div style="font-size: 10px; margin-top: 15px; 
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">ELECTRONICS</div>
             </i>
         </button>
         <button class="icon1" id="Food Items" onclick="sendFilterRequest(this.id)">
             <i class="fas fa-utensils" style="font-size: 35px; color: white;"></i>
-            <div
-                style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white; font-weight: bold;">
-                FOOD ITEMS</div>
+            <div style="font-size: 10px; margin-top: 15px;color: white; font-weight: bold; 
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">FOOD ITEMS</div>
             </i>
         </button>
         <button class="icon1" id="Handicraft" onclick="sendFilterRequest(this.id)">
             <i class="fas fa-hammer" style="font-size: 35px; color: white;">
-                <div
-                    style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">
-                    HANDICRAFT</div>
+                <div style="font-size: 10px; margin-top: 15px; color: white; 
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">HANDICRAFT</div>
             </i>
         </button>
         <button class="icon1" id="Home Decor" onclick="sendFilterRequest(this.id)">
             <i class="fas fa-home" style="font-size: 35px; color: white;">
-                <div
-                    style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">
-                    HOME DECOR</div>
+                <div style="font-size: 10px; margin-top: 15px; color: white; 
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">HOME DECOR</div>
             </i>
         </button>
         <button class="icon1" id="Others" onclick="sendFilterRequest(this.id)">
             <i class="fas fa-ellipsis-h" style="font-size: 35px; color: white;">
-                <div
-                    style="font-size: 10px; margin-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">
-                    OTHERS</div>
+                <div style="font-size: 10px; margin-top: 15px; color: white; 
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">OTHERS</div>
             </i>
         </button>
     </div>
-
     <br>
 
     <hr style="width: 90%; height: 0.5px; background-color: white;">
-    <h3 style="font: verdana; margin-left: 50px; color: white;">Featured</h3>
+    <h3 style="margin-left: 50px; color: white; font-size: 40px;">Featured</h3>
     <div class="card-container">
         {% for p in posts %}
         <div class="card">
@@ -263,7 +258,7 @@
                 <div class="profile">Description</div>
                 <div class="info">
                     <div class="caption">
-                        <p style="width: 330px;">{{p.description}}</p>
+                        <p style="width: 330px; overflow-y: scroll; height: 75px;">{{p.description}}</p>
                     </div>
                 </div>
             </div>
@@ -272,18 +267,17 @@
     </div>
 
     <br>
-    <h3 style="font: verdana; margin-left: 50px; color: white;">For Endless Munching!</h3>
+    <h3 style="margin-left: 50px; color: white; font-size: 40px;">For Endless Munching!</h3>
     <div class="card-container">
         {% for p in posts %}
         <div class="card">
             <header class="article-header">
-                <img src="{{p.imageURL}}" alt="Product">
+                <a href = "{% url 'viewPost' business=p.business_name name=p.name%}"><img src="{{p.imageURL}}" alt="Product"></a>
                 <div>
                     <div class="category-title">
                         {{p.name}} <span class="date" style = "float: right; font-weight: normal">{{p.date_created}}</span>
                         <span><p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
-                            style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a><span class="price" style = "float: right; font-weight: bold;margin-right: 20px;font-size: 20px;">&#8377;{{p.price}}</span></p></span>
-                            
+                            style="color: rgb(201, 201, 201); text-decoration: none;">{{p.business_name}}</a><span class="price" style = "float: right; font-weight: bold;margin-right: 20px;font-size: 20px;">&#8377;{{p.price}}</span></p></span>   
                     </div>
                 </div>
             </header>
@@ -292,7 +286,7 @@
                 <div class="profile">Description</div>
                 <div class="info">
                     <div class="caption">
-                        <p style="width: 330px;">{{p.description}}</p>
+                        <p style="width: 330px; overflow-y: scroll; height: 75px;">{{p.description}}</p>
                     </div>
                 </div>
             </div>
@@ -301,38 +295,41 @@
     </div>
 
     <br>
-    <h3 style="font: verdana; margin-left: 50px; color: white;">Lockdown Essentials!</h3>
+    <h3 style="margin-left: 50px; color: white; font-size: 40px;">Products You May Like!</h3>
     <div class="card-container1">
         {% for p in posts %}
         <div class="cards1">
             <header class="article-header1">
-                <div style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; 
+                <a href = "{% url 'viewPost' business=p.business_name name=p.name%}">
+                    <div style="width: 300px; height: 270px; margin-top: 18px; padding-right: 20px; 
              border-right: solid rgb(216, 214, 214) 2px; background-image: url({{p.imageURL}}); 
              background-position: center; background-size: cover;">
                 </div>
+                </a>
+                
             </header>
             <div class="author1"
                 style="color: white; margin-left: 320px; width: 350px; height: 100%; margin-top: -290px; padding: 5px;">
                 <div class="profile1"
                     style="width: 100%; height: fit-content; margin-top: 10px; font-size: 17px; font-weight: bold;">
                     <span style="font-size:25px;">{{p.name}}</span>
-                    <p style=" margin-bottom: 2px; color: #ce7c7c;">
+                    <p style=" margin-bottom: 2px; color: #ce7c7c;font-weight: normal;">
                         {{p.date_created}}</p>
                     <p style="margin-bottom: 1px;"><a href="{% url 'viewProfile' business=p.business_name %}"
-                            style="color: white; text-decoration: none; font-weight: normal;">{{p.business_name}}</a>
+                            style="color: white; text-decoration: none; font-weight: 500;">{{p.business_name}}</a>
                             <span class="price" style = "float: right; font-weight: bold;margin-right: 20px;font-size: 20px;">&#8377;{{p.price}}</span>
                     </p>
                 </div>
-                <hr style="width: 90%; background-color: whitesmoke; margin: 5px 0px;">
+                <hr style="width: 95%; background-color: whitesmoke; margin: 5px 0px;">
                 <div class="info1">
                     <div class="caption1" style="font-size: 17px; font-weight: bold;">Description: </div>
-                    <div class="name1"
-                        style="  overflow-x: hidden; display: flex; flex-direction: row;flex-wrap: wrap; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                    <div class="name1" style="width: 340px; height: 150px; overflow-y: scroll;">
                         {{p.description}}
                     </div>
                 </div>
             </div>
         </div>
+
         {% endfor %}
     </div>
 
@@ -376,21 +373,13 @@
   <br />
   <br />
   <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
+
+  <hr style="height: 0.5px; background-color: white;" />
   <div class="footer" style="padding-left: 10px;">
-    <hr style="height: 0.5px; background-color: white;" />
     <h3 style="color: white;">Contact us at: <span style="margin:0px 5px;"><i class="fab fa-facebook"></i></span>
       <span style="margin:0px 5px;"><i class="fab fa-instagram"></i></span><span style="margin:0px 5px;"><i
           class="fab fa-twitter"></i></span>
-      <div><span style="font-size: 18px;">Aditya Malwade: 1911091 | Rahul Panchal: 1911097 | Aayush Malde:
-          1911090</span></div>
+      <div><span style="font-size: 18px;">Aayush Malde: 1911090 |Aditya Malwade: 1911091 | Rahul Panchal: 1911097 </span></div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

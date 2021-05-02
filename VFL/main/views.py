@@ -23,6 +23,11 @@ def home(request):
 	locat = None
 	avail = None
 	category = None
+	profile_filled = True
+	try:
+		Customer.objects.get(pk = request.user.id)
+	except Customer.DoesNotExist:
+		profile_filled = False
 	if request.method == "POST" :
 		locat = request.POST['location']
 		category = request.POST['category_option']
@@ -47,6 +52,7 @@ def home(request):
 			# print(qs3)
 		qs4 = qs1.intersection(qs2,qs3).order_by("-p_id")
 		print(qs4)
+<<<<<<< HEAD
 		return render(request,'main/home.html',context={'posts':qs4})
 	profile_filled = True
 	try:
@@ -60,6 +66,9 @@ def home(request):
 		Customer.objects.get(pk = request.user.id)
 	except Customer.DoesNotExist:
 		profile_filled = False
+=======
+		return render(request,'main/home.html',context={'posts':qs4,'profile_filled':profile_filled})
+>>>>>>> 3b2f80a0a659c969cc27258941bc0b766e03a2cd
 	return render(request,'main/home.html',context={'posts':posts,'profile_filled':profile_filled})
 >>>>>>> 289c51a6631f6f20cc10df2557e515123e185176
 

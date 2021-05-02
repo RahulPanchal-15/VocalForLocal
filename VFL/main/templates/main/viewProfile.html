@@ -103,14 +103,14 @@
                   </a>
                 </div>
                 <div id="product-info">
-                    <h3 style="margin-left: 5px;">
-                        {{p.name}}<span class="price" style = "float: right; font-weight: bold;margin-right: 50px;">&#8377;{{p.price}}</span>
+                    <h3 style="margin-left: 5px;font-weight: bold;">
+                        {{p.name}}<span class="price" style = "float: right; margin-right: 50px;">&#8377;{{p.price}}</span>
                         <p style="font-size:0.6em; color: rgb(104, 102, 102); margin: 5px;">{{p.date_created}}</p>
                     </h3>
                     <hr style="width:95%; margin: 4px 4px; background-color: rgb(190, 189, 189);">
                     <h4 style="margin-left: 5px;">
                         Description:
-                        <h5 style="display: flex; flex-direction:row; flex-wrap: wrap; overflow: hidden; margin-left: 5px;">
+                        <h5 style="overflow-y: scroll; margin-left: 5px; height: 70px;">
                             {{p.description}}
                         </h5>
                     </h4>

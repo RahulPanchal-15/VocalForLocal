@@ -61,7 +61,7 @@
       </div>
       <div id="pdt-info">
         <h1 id="pdt-name">
-          {{p.name}}
+          {{p.name}} <span style="float: right;"> &#x20B9;{{p.price}}</span>
         </h1>
         <hr style="width:90%; ">
         <h2 id="price">
@@ -74,7 +74,7 @@
         </h1>
         <hr style="text-align: center;margin-top: 17px;width: 90%;">
         <div id="description-text">
-          <p style="width: 320px; overflow-wrap: break-word; font-size: 20px;">{{p.description}}</p>
+          <p style="width: 320px; overflow-wrap: break-word; font-size: 20px; height: 230px; overflow-y: scroll;">{{p.description}}</p>
         </div>
       </div>
     </div>
@@ -104,11 +104,12 @@
         </form>
       </div>
     </div>
+
+    <hr style="width:100%; height: 0.5px; background-color: white;"/>
     <div class="footer" style="padding-left: 10px;">
-      <hr style="width:100%; height: 0.5px; background-color: white;"/>
       <h3 style="color: white;">Contact us at: <span style="margin:0px 5px;"><i class="fab fa-facebook"></i></span> 
         <span style="margin:0px 5px;"><i class="fab fa-instagram"></i></span><span style="margin:0px 5px;"><i class="fab fa-twitter"></i></span> 
-        <div><span style="font-size: 18px;">Aditya Malwade: 1911091 | Rahul Panchal: 1911097 | Aayush Malde: 1911090</span></div>
+        <div><span style="font-size: 18px;">Aayush Malde: 1911090 |Aditya Malwade: 1911091 | Rahul Panchal: 1911097 </span></div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
