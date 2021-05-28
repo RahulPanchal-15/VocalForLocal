@@ -1,4 +1,5 @@
 # VocalForLocal - SY MiniProject
+![Untitled design](https://user-images.githubusercontent.com/69159108/120028016-be066800-c011-11eb-8519-85f99a436e09.png)
 ### Group Members: 
 #### SY Comps B2 batch
 * Aayush Malde (1911090)
